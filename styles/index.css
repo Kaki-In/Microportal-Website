@@ -1,0 +1,21 @@
+@import url("./header.css");
+@import url("./main.css");
+@import url("./loader.css");
+
+@import url("./themes/default.css");
+@import url("./themes/dark.css");
+@import url("./themes/phone.css");
+
+* {
+    outline: none;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: var(--colorBodyBackground);
+    font-family: var(--stringFontName), sans-serif;
+    width: 100%;
+    height: 100%;
+}
+

@@ -1,0 +1,68 @@
+:root {
+    --colorPrimary: #12b7ff;
+    --colorPrimaryLight: #95ccff;
+    --colorPrimaryDark: #095880;
+
+    --colorSecondary: #00BBC1;
+    --colorSecondaryLight: #80DDDA;
+    --colorSecondaryDark: #00676A;
+
+    --colorBodyBackground: white;
+    --colorMainBackground: white;
+    --colorLoadingSpan: var(--colorSecondaryLight);
+
+    --colorButton: var(--colorSecondary);
+    --colorButtonBorder: var(--colorSecondary);
+    --colorButtonHover: var(--colorSecondaryDark);
+
+    --colorHeaderBottomBar: var(--colorPrimaryDark);
+    --colorHeaderTopBar: var(--colorPrimary);
+
+    --colorInputBackground: var(--colorMainBackground);
+    --colorInputBorder: var(--colorPrimary);
+    --colorInputDisabledBorder: var(--colorPrimaryLight);
+    --colorInputBorderFocus: var(--colorPrimaryDark);
+
+    --stringFontName: 'Ubuntu';
+
+    --zIndexHeader: 10;
+    --zIndexHeaderImage: 1;
+
+    --dimenHeaderHeight: 50px;
+    --dimenHeaderSpaceElements: 10px;
+    --dimenHeaderBottomBar: 1px;
+    --dimenHeaderTopBar: 1px;
+    --dimenHeaderButtonPadding: 15px;
+
+    --dimenMainMargin: 10px;
+    --dimenMainPadding: 30px;
+    --dimenMainRadius: 10px;
+
+    --dimenMainCentralDivMargin: 50px;
+
+    --dimenLoadingSize: 30px;
+    --dimenLoadingPadding: 5px;
+    --dimenLoadingSpanSize: 5px;
+    --dimenLoadingSpanRadius: 2px;
+
+    --dimenButtonBorder: 0px;
+    --dimenButtonBorderRadius: 5px;
+    --dimenButtonPadding: 20px;
+    --dimenButtonTextSize: 18px;
+
+    --dimenInputBorder: 1px;
+    --dimenInputPadding: 10px;
+    --dimenInputBorderRadius: 5px;
+    --dimenInputMargin: 10px;
+
+    --dimenInputLabelMarginTop: 10px;
+
+    --dimenParagraphSize: 16px;
+
+    --timeLoadingAnimation: 2s;
+    --timeImageHoverInTransition: 0.1s;
+    --timeImageHoverOutTransition: 0.2s;
+    --timeButtonHoverInTransition: 0.1s;
+    --timeButtonHoverOutTransition: 0.2s;
+}
+

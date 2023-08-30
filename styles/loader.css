@@ -1,0 +1,85 @@
+div.loading {
+    display: block;
+    position: relative;
+    width: var(--dimenLoadingSize);
+    height: var(--dimenLoadingSize);
+    background: #0008;
+    padding: var(--dimenLoadingPadding);
+    border-radius: 100%;
+    animation: turnload var(--timeLoadingAnimation) infinite ease-in-out;
+}
+
+div.loading.centered {
+    margin: auto;
+}
+
+
+@keyframes turnload {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+div.loading div {
+    position: absolute;
+    display: block;
+    height: var(--dimenLoadingSpanSize);
+    top: calc(var(--dimenLoadingPadding) + (var(--dimenLoadingSize) - var(--dimenLoadingSpanSize)) * 0.5);
+    left: var(--dimenLoadingPadding);
+    right: var(--dimenLoadingPadding);
+    width: calc(100% - var(--dimenLoadingPadding) * 2);
+/*    transform-origin: right;*/
+}
+
+div.loading span {
+    background: var(--colorLoadingSpan);
+    display: block;
+    position: relative;
+    width: var(--dimenLoadingSpanSize);
+    height: var(--dimenLoadingSpanSize);
+    animation: turnload-reversed var(--timeLoadingAnimation) infinite linear;
+    border-radius: var(--dimenLoadingSpanRadius);
+}
+
+div.loading div:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+div.loading div:nth-child(3) {
+    transform:rotate(90deg);
+}
+
+div.loading div:nth-child(4) {
+    transform:rotate(135deg);
+}
+
+div.loading div:nth-child(5) {
+    transform:rotate(180deg);
+}
+
+div.loading div:nth-child(6) {
+    transform:rotate(225deg);
+}
+
+div.loading div:nth-child(7) {
+    transform:rotate(270deg);
+}
+
+div.loading div:nth-child(8) {
+    transform:rotate(315deg);
+}
+
+@keyframes turnload-reversed {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+

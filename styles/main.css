@@ -1,0 +1,125 @@
+#root {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: var(--dimenHeaderHeight);
+    bottom: 0px;
+    overflow: auto;
+}
+
+main {
+    position: relative;
+    display: flex;
+    left: 0px;
+    right: 0px;
+    height: auto;
+    justify-content: center;
+}
+
+main > * {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: var(--dimenMainMargin);
+    padding: var(--dimenMainPadding);
+    border-radius: var(--dimenMainRadius);
+    background: var(--colorMainBackground);
+}
+
+p {
+    font-size: var(--dimenParagraphSize);
+}
+
+button {
+    display: inline-block;
+    background: var(--colorButton);
+    border : var(--dimenButtonBorder) solid var(--colorButtonBorder);
+    border-radius: var(--dimenButtonBorderRadius);
+    padding: var(--dimenButtonPadding);
+    transition: all var(--timeButtonHoverOutTransition);
+    font-family: var(--stringFontName), sans-serif;
+    font-size: var(--dimenButtonTextSize);
+    cursor: pointer;
+}
+
+button.text {
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--colorButtonBorder);
+    border-radius: 0px;
+    padding: 0px;
+    margin: 0px;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: var(--dimenParagraphSize);
+}
+
+button.submit-button {
+    width: 100%;
+}
+
+button:hover {
+    background : var(--colorButtonHover);
+    transition: all var(--timeButtonHoverInTransition);
+}
+
+button.text:hover {
+    background: none;
+    color : var(--colorButtonHover);
+}
+
+main div.central-div {
+    display: flex;
+    position: relative;
+    width: 100%;
+    border-radius: 0px;
+    background: var(--colorPrimary);
+    margin: 0px;
+    margin-top: var(--dimenMainCentralDivMargin);
+    margin-bottom: var(--dimenMainCentralDivMargin);
+}
+
+main div.central-div > .form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--dimenMainPadding);
+    border-radius: var(--dimenMainRadius);
+    background: var(--colorMainBackground);
+}
+
+h1 {
+    color: var(--colorPrimaryDark);
+}
+
+.form h1, .form p.alternative-text {
+    text-align: center;
+}
+
+input {
+    display: block;
+    position: relative;
+    width: calc( 100% - ( var(--dimenButtonPadding) + 2 * var(--dimenButtonBorder) ) );
+    background: var(--colorInputBackground);
+    padding: var(--dimenInputPadding);
+    border: var(--dimenInputBorder) solid var(--colorInputBorder);
+    border-radius: var(--dimenInputBorderRadius);
+    margin-top: var(--dimenInputMargin);
+    margin-bottom: var(--dimenInputMargin);
+    transition: var(--timeButtonHoverOutTransition) all ease-out;
+}
+
+input[ disabled ] {
+    border: var(--dimenInputBorder) solid var(--colorInputDisabledBorder);
+}
+
+input:focus {
+    border: var(--dimenInputBorder) solid var(--colorInputBorderFocus);
+    transition: var(--timeButtonHoverInTransition) all ease-out;
+}
+
+label.input-label {
+    display: inline-block;
+    margin-top: var(--dimenInputLabelMarginTop);
+}
