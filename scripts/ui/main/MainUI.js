@@ -6,6 +6,7 @@ import { Adapter } from "../../../components/Adapter.js";
 import { WelcomePage } from "./WelcomePage.js";
 import { CreationPage } from "./CreationPage.js";
 import { ConnectionPage } from "./ConnectionPage.js";
+import { MailVerificationPage } from "./MailVerificationPage.js";
 
 export class MainUI extends MainComponent {
     
@@ -25,6 +26,10 @@ export class MainUI extends MainComponent {
         this.adapter.content = new Loader();
     }
 
+    openHome(platform) {
+        this.adapter.content = new WelcomePage(platform);
+    }
+
     openCreationPage(platform) {
         this.adapter.content = new CreationPage(platform);
     }
@@ -33,8 +38,8 @@ export class MainUI extends MainComponent {
         this.adapter.content = new ConnectionPage(platform);
     }
 
-    openHome(platform) {
-        this.adapter.content = new WelcomePage(platform);
+    openMailVerificationPage(platform, name, password) {
+        this.adapter.content = new MailVerificationPage(platform, name, password);
     }
 
 }

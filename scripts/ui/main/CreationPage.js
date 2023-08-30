@@ -11,7 +11,7 @@ export class CreationPage extends Component{
         this._form = element[ 1 ];
 
         this.form.addEventListener("submit", (name, mail, password, password2) => { 
-            this.submit(name, mail, password, password2); 
+            this.submit(platform, name, mail, password, password2); 
         })
 
         this.form.alternatives[ 0 ].addEventListener("click", () => {
@@ -28,8 +28,25 @@ export class CreationPage extends Component{
         return this._form;
     }
 
-    submit(name, mail, password, password2) {
+    async submit(platform, name, mail, password, password2) {
+        if ( password !== password2 ) {
+            let notification = platform.ui.notifications.createNotification("warning");
+            notification.title = "Entrées invalides";
+            notification.text = "Les mots de passe ne correspondent pas";
+            return ;
+        }
 
+        this.form.loading = true;
+        let result = await platform.localActions.createAccount(name, mail, password);
+        this.form.loading = false;
+
+        if (result.state === "failed") {
+            let notification = platform.ui.notifications.createNotification("error");
+            notification.title = "Impossible de créer votre compte";
+            notification.text = result.result.message;
+        } else if (result.state === "mail") {
+            platform.localActions.startVerifyMailAddress(name, password);
+        }
     }
 
 }
@@ -40,10 +57,10 @@ function createCreation() {
 
     let form = new Form("Créer un nouveau compte");
     form.addAlternative("Je souhaite plutôt", "me connecter");
-    form.addInput("Nom d'utilisateur:", "text");
-    form.addInput("Adresse mail", "mail");
-    form.addInput("Mot de passe:", "password");
-    form.addInput("Confirmez votre mot de passe:", "password");
+    form.addInput("Nom d'utilisateur:", "text", true);
+    form.addInput("Adresse mail", "mail", true);
+    form.addInput("Mot de passe:", "password", true);
+    form.addInput("Confirmez votre mot de passe:", "password", true);
 
     form.button.element.textContent = "Créer mon compte";
 

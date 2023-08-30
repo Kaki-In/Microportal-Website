@@ -2,7 +2,30 @@ export class DistantActionsList {
     
     constructor() {
         this._actions = {
-            "connectionFailed": (platform, args) => { this.connectionFailed(platform, args); }
+            "connectionFailed": (platform, args) => {
+                platform.localActions.resolveConnection("failed", args);
+            },
+            "connectionSuccess": (platform, args) => {
+                platform.localActions.resolveConnection("success", args);
+                platform.context.world.setUser(args.result.name, "");
+            },
+            "accountCreationFailed": (platform, args) => {
+                platform.localActions.resolveCreation("failed", args);
+            },
+            "startMailVerification": (platform, args) => {
+                let notification = platform.ui.notifications.createNotification("info");
+                notification.title = "Vérification de l'adresse mail";
+                notification.text = "Un mail a été envoyé à l'adresse " + args.address;
+
+                platform.localActions.resolveConnection("mail", args);
+                platform.localActions.resolveCreation("mail", args);
+            },
+            "mailVerificationFailed": (platform, args) => {
+                platform.localActions.resolveVerification("failed", args);
+            },
+            "mailVerificationSuccess": (platform, args) => {
+                platform.localActions.resolveVerification("success", args);
+            }
         }
     }
 
@@ -18,14 +41,10 @@ export class DistantActionsList {
         }
     }
 
-    connectionFailed(platform, args) {
-        console.log(platform.ui.main.adapter.content);
-        platform.ui.main.adapter.content.loading = false;
-    }
-
     loadPlatform(platform) {
         platform.serverConnection.addEventListener("message", (message) => {
             this.execute(platform, message);
         })
     }
+
 }

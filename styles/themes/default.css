@@ -23,10 +23,21 @@
     --colorInputDisabledBorder: var(--colorPrimaryLight);
     --colorInputBorderFocus: var(--colorPrimaryDark);
 
+    --colorNotificationBackground: var(--colorSecondaryLight);
+    --colorNotificationBorder: var(--colorSecondaryDark);
+    --colorNoficationCloseButtonCross: white;
+
+    --colorNotificationError: red;
+    --colorNotificationSuccess: #12b723;
+    --colorNotificationWarning: #ffb712;
+    --colorNotificationInfo: var(--colorPrimary);
+
     --stringFontName: 'Ubuntu';
 
     --zIndexHeader: 10;
     --zIndexHeaderImage: 1;
+
+    --zIndexNotificationsDiv: 15;
 
     --dimenHeaderHeight: 50px;
     --dimenHeaderSpaceElements: 10px;
@@ -39,6 +50,15 @@
     --dimenMainRadius: 10px;
 
     --dimenMainCentralDivMargin: 50px;
+
+    --dimenNotificationsDivMargin: 20px;
+    --dimenNotificationPadding: 20px;
+    --dimenNotificationSpace: 10px;
+    --dimenNotificationBorder: 2px;
+    --dimenNotificationBorderRadius: 10px;
+    --dimenNotificationCloseButtonCross: 7px;
+    --dimenNotificationTitleSize: 15px;
+    --dimenNotificationTextSize: 12px;
 
     --dimenLoadingSize: 30px;
     --dimenLoadingPadding: 5px;
@@ -64,5 +84,8 @@
     --timeImageHoverOutTransition: 0.2s;
     --timeButtonHoverInTransition: 0.1s;
     --timeButtonHoverOutTransition: 0.2s;
+    --timeNotificationAppearition: 0.5s;
+
+    --timingFunctionNotificationAppearition: ease-out;
 }
 

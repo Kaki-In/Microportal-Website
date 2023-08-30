@@ -45,6 +45,7 @@ export class Form extends Component {
         for (let input of this._inputs) {
             input.disabled = loading;
         }
+        this.checkValidity();
     }
 
     get button () {
@@ -64,20 +65,39 @@ export class Form extends Component {
         this.element.insertBefore(p, this.button.element);
 
         this._alternatives.push(button);
+        this.checkValidity();
     }
 
-    addInput(name, type) {
+    addInput(name, type, needed) {
         let label = document.createElement("label");
         label.className = "input-label";
         label.textContent = name + (name[ name.length - 1 ] === ":"? "" : ":") ;
 
         let input = document.createElement("input");
         input.type = type;
-        
+        if (needed) {
+            input.needed = true;
+        }
+        input.addEventListener("input", () => {
+            this.checkValidity();
+        });
+    
         this.element.insertBefore(label, this.button.element);
         this.element.insertBefore(input, this.button.element);
 
         this._inputs.push(input);
+        this.checkValidity();
+    }
+
+    checkValidity() {
+        for (let input of this._inputs) {
+            if ( input.value === "" && input.needed ) {
+                this.button.disable();
+                return false;
+            }
+        }
+        this.button.enable();
+        return true;
     }
 
 }

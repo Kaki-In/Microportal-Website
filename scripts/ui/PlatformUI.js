@@ -1,5 +1,6 @@
 import { MainUI } from "./main/MainUI.js";
 import { HeaderUI } from "./header/HeaderUI.js";
+import { Notifications } from "./notifications/Notifications.js";
 
 export class PlatformUI {
 
@@ -7,6 +8,7 @@ export class PlatformUI {
 
         this._mainUI = new MainUI();
         this._headerUI = new HeaderUI();
+        this._notifications = new Notifications();
 
     }
 
@@ -16,6 +18,10 @@ export class PlatformUI {
 
     get header() {
         return this._headerUI;
+    }
+
+    get notifications() {
+        return this._notifications;
     }
 
     loadPlatform(platform) {

@@ -2,6 +2,7 @@ import { PlatformUI } from "./ui/PlatformUI.js";
 import { ServerConnection } from "./ServerConnection.js";
 import { LocalActions } from "./localActions/LocalActions.js";
 import { DistantActionsList } from "./distantActions/DistantActionsList.js";
+import { Context } from "./context/Context.js";
 
 export class Platform {
 
@@ -9,6 +10,7 @@ export class Platform {
         this._ui = new PlatformUI();
         this._distantActions = new DistantActionsList();
         this._localActions = new LocalActions(this);
+        this._context = new Context();
         this.loadConnection();
     }
 
@@ -17,7 +19,7 @@ export class Platform {
         this._conn.addEventListener("open", () => { this.load(); })
         this._conn.addEventListener("close", (event) => { this.loadConnection(event, true) })
 
-        setTimeout(() => { this._conn.start();}, wait? 5000 : 0);
+        setTimeout(() => { this._conn.start();}, wait? 5000 : 0);
     }
     
     get ui() {
@@ -30,6 +32,10 @@ export class Platform {
 
     get localActions() {
         return this._localActions;
+    }
+
+    get context() {
+        return this._context;
     }
 
     load(event) {

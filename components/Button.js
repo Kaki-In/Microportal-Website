@@ -35,6 +35,14 @@ export class Button extends Adapter {
         this._button.addEventListener(name, func);
     }
 
+    enable() {
+        this._button.disabled = false;
+    }
+
+    disable() {
+        this._button.disabled = true;
+    }
+
 }
 
 function createButton(text, listener) {

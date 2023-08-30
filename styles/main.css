@@ -40,7 +40,6 @@ button {
     transition: all var(--timeButtonHoverOutTransition);
     font-family: var(--stringFontName), sans-serif;
     font-size: var(--dimenButtonTextSize);
-    cursor: pointer;
 }
 
 button.text {
@@ -59,12 +58,13 @@ button.submit-button {
     width: 100%;
 }
 
-button:hover {
+button:not([disabled]):hover {
     background : var(--colorButtonHover);
     transition: all var(--timeButtonHoverInTransition);
+    cursor: pointer;
 }
 
-button.text:hover {
+button.text:not([disabled]):hover {
     background: none;
     color : var(--colorButtonHover);
 }

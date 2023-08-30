@@ -22,16 +22,21 @@ export class ConnectionPage extends Component {
     }
 
     async submit (platform, name, password) {
-        if (name === "") {
-            return;
-        } 
-
-        if (password === "") {
-            return;
-        }
-
         this.form.loading = true;
-        await platform.localActions.connect(name, password);
+        let result = await platform.localActions.connect(name, password);
+        this.form.loading = false;
+
+        if (result.state === "failed") {
+            let notification = platform.ui.notifications.createNotification("error");
+            notification.title = "Impossible de vous connecter à votre compte";
+            notification.text = result.result.message;
+        } else if (result.state === "mail") {
+            platform.localActions.startVerifyMailAddress(name, password);
+        } else {
+            let notification = platform.ui.notifications.createNotification("success");
+            notification.title = "Connecté à " + result.result.user;
+            notification.text = "Connexion effectuée avec succès";
+        }
     }
 
     get form () {
@@ -50,8 +55,8 @@ function createConnection() {
 
     let form = new Form("Se connecter");
     form.addAlternative("Je souhaite plutôt", "créer un compte");
-    form.addInput("Nom d'utilisateur:", "text");
-    form.addInput("Mot de passe:", "password");
+    form.addInput("Nom d'utilisateur:", "text", true);
+    form.addInput("Mot de passe:", "password", true);
 
     form.button.element.textContent = "Se connecter";
 
