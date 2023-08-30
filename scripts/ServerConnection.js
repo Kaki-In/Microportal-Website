@@ -16,8 +16,6 @@ export class ServerConnection {
     }
 
     async start() {
-        this._open();
-        return;
         let wsock = new WebSocket("ws://" + this._server + ":" + this._port + "/user");
 
         wsock.addEventListener("open", () => {
