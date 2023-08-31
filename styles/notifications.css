@@ -18,10 +18,18 @@ section#notifications > div {
     padding: var(--dimenNotificationPadding);
     margin-top: var(--dimenNotificationSpace);
     border: var(--dimenNotificationBorder) solid var(--colorNotificationBorder) ;
-    border-radius: var(--dimenNotificationBorderRadius);
     animation-name: openfade;
     animation-duration: var(--timeNotificationAppearition);
     animation-timing-function: var(--timingFunctionNotificationAppearition);
+}
+
+section#notifications > div:before {
+    position: absolute;
+    content: " ";
+    height: 100%;
+    width: var(--dimenNotificationStatusBar);
+    top: 0px;
+    left: 0px;
 }
 
 @keyframes openfade {
@@ -33,25 +41,25 @@ section#notifications > div {
 
     100% {
         transform: translateX(0%);
-        max-height: 100%;
+        max-height: 50%;
         opacity: 1;
     }
 }
 
 
-section#notifications > div.error {
+section#notifications > div.error:before {
     background: var(--colorNotificationError);
 }
 
-section#notifications > div.success {
+section#notifications > div.success:before {
     background: var(--colorNotificationSuccess);
 }
 
-section#notifications > div.info {
+section#notifications > div.info:before {
     background: var(--colorNotificationInfo);
 }
 
-section#notifications > div.warning {
+section#notifications > div.warning:before {
     background: var(--colorNotificationWarning);
 }
 

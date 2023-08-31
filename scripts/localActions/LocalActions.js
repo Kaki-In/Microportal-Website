@@ -71,8 +71,4 @@ export class LocalActions {
         platform.ui.main.openMailVerificationPage(platform, name, password);
     }
 
-    connectToAccount(name) {
-        
-    }
-
 }

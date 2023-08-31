@@ -42,8 +42,10 @@ header ul.header-list {
     scale: 1;
 }
 
-header ul.header-list * {
+header ul.header-list > * {
+    display: inline-block;
     flex-shrink: 0;
+    height: 100%;
 }
 
 header ul.header-list span {
@@ -58,6 +60,14 @@ header ul.header-list button {
     font-weight: normal;
 }
 
+header ul.header-list button img.active {
+    margin-right: var(--dimenHeaderButtonPadding);
+}
+
 header ul.header-list button:hover {
     background: var(--colorPrimaryDark);
+}
+
+header ul.header-list img {
+    height: 100%;
 }

@@ -6,8 +6,7 @@ export class DistantActionsList {
                 platform.localActions.resolveConnection("failed", args);
             },
             "connectionSuccess": (platform, args) => {
-                platform.localActions.resolveConnection("success", args);
-                platform.context.world.setUser(args.result.name, "");
+                platform.context.world.setUser(args.user, "");
             },
             "accountCreationFailed": (platform, args) => {
                 platform.localActions.resolveCreation("failed", args);
@@ -39,12 +38,6 @@ export class DistantActionsList {
         } else {
             action(platform, args);
         }
-    }
-
-    loadPlatform(platform) {
-        platform.serverConnection.addEventListener("message", (message) => {
-            this.execute(platform, message);
-        })
     }
 
 }

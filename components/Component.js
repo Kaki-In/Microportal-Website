@@ -10,8 +10,12 @@ export class Component {
 
     set element(element) {
         // Replace the current element by the new one
+        if (element) {
+            this.element.component = undefined;
+        }
         this.element.replaceWith(element);
         this.__element__ = element;
+        element.component = this;
     }
 
     get parent() {

@@ -55,10 +55,10 @@
     --dimenNotificationPadding: 20px;
     --dimenNotificationSpace: 10px;
     --dimenNotificationBorder: 2px;
-    --dimenNotificationBorderRadius: 10px;
     --dimenNotificationCloseButtonCross: 7px;
     --dimenNotificationTitleSize: 15px;
     --dimenNotificationTextSize: 12px;
+    --dimenNotificationStatusBar: 10px;
 
     --dimenLoadingSize: 30px;
     --dimenLoadingPadding: 5px;

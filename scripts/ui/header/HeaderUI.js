@@ -16,7 +16,11 @@ export class HeaderUI extends HeaderComponent {
 
     load(platform) {
         this.adapter.content = new HeaderDefault(platform);
+
         platform.serverConnection.addEventListener("close", () => { this.reset(); })
+        platform.context.world.addEventListener("userChanged", () => { 
+            this.adapter.content = new HeaderConnected(platform);
+        })
     }
 
     reset() {

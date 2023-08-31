@@ -43,7 +43,7 @@ export class ServerConnection {
     addEventListener( name, func ) {
         let event = this._events[ name ];
         if ( event === undefined ) {
-            throw new KeyError( "no such error" );
+            throw new KeyError( "no such event" );
         } else {
             this._events[ name ].connect( func );
         }

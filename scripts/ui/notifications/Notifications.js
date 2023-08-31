@@ -10,7 +10,6 @@ export class Notifications extends Component {
     createNotification(state) {
         let notification = new Notification(state);
         appendChild(this.element, notification);
-        setTimeout(() => {notification.destroy()}, 3000);
         return notification;
     }
 

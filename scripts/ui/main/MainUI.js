@@ -22,10 +22,6 @@ export class MainUI extends MainComponent {
         platform.serverConnection.addEventListener("close", () => { this.reset(); })
     }
 
-    reset() {
-        this.adapter.content = new Loader();
-    }
-
     openHome(platform) {
         this.adapter.content = new WelcomePage(platform);
     }
@@ -37,7 +33,7 @@ export class MainUI extends MainComponent {
     openConnectionPage(platform) {
         this.adapter.content = new ConnectionPage(platform);
     }
-
+    
     openMailVerificationPage(platform, name, password) {
         this.adapter.content = new MailVerificationPage(platform, name, password);
     }

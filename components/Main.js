@@ -9,6 +9,8 @@ export class MainComponent extends Component {
             throw ReferenceError("couldn't find main element");
         }
 
+        element.innerHTML = "";
+
         super(element);
 
         appendChild(element, adapter);

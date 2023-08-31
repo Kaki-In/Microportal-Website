@@ -1,4 +1,5 @@
 import { Component, appendChild, removeChild } from "./Component.js";
+import { Button } from "./Button.js";
 
 export class HeaderContent extends Component {
 
@@ -18,12 +19,11 @@ export class HeaderContent extends Component {
     }
 
     addButton(name, func) {
-        let button = document.createElement("button");
-        button.textContent = name;
+        let button = new Button(name);
+        button.className = "header-button"
         button.addEventListener("click", func);
-        button.className = "header-button";
 
-        this._list.appendChild(button);
+        appendChild(this._list, button);
 
         return button;
     }
@@ -37,6 +37,10 @@ export class HeaderContent extends Component {
 
     addComponent(component) {
         appendChild(this._list, component);
+    }
+
+    addElement(element) {
+        this._list.appendChild(element);
     }
 
 }

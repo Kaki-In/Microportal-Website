@@ -12,6 +12,28 @@ export class Button extends Adapter {
 
         this._loading = false;
         this._className = "";
+        this._icon = null;
+    }
+
+    set icon(src) {
+        this.element.children[ 0 ].src = src;
+        if (src) {
+            this.element.children[ 0 ].className = "active";
+        } else {
+            this.element.children[ 0 ].className = "";
+        }
+    }
+
+    get icon() {
+        return this.element.children[ 0 ].src;
+    }
+
+    set text(text) {
+        this.element.children[ 1 ].textContent = text;
+    }
+
+    get text() {
+        return this.element.children[ 1 ].textContent;
     }
 
     set loading(value) {
@@ -48,7 +70,8 @@ export class Button extends Adapter {
 function createButton(text, listener) {
     let button = document.createElement('button');
     button.addEventListener("click", listener);
-    button.textContent = text;
+    button.appendChild(document.createElement("img"));
+    button.appendChild(document.createElement("text")).textContent = text;
     return button;
 }
 
