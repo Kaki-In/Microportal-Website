@@ -12,14 +12,26 @@ export class RequestsList {
         }
     }
 
+    findRequestById(id) {
+        for (let request of this._requests) {
+            if ( request.id === id ) {
+                console.log(request);
+                return request;
+            }
+        }
+        console.warn("no request found...");
+    }
+
     create(name, args) {
+        console.log("create");
+        console.log(this);
         let request = new Request(name, args);
         this._waitingRequests.push(request);
         request.addEventListener("saved", () => {
             this._requests.push(request);
-            this._events.requestSent.emit(request);
+            this._events.requestSaved.emit(request);
         })
-        this._waitingRequests.push(request);
+        console.log(this);
         return request;
     }
 

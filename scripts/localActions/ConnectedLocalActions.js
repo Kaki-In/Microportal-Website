@@ -18,14 +18,14 @@ export class ConnectedLocalActions {
     }
 
     async sendRobotAction(robot, action, args) {
-        let action = this._platform.context.requests.create(action, args);
+        let newreq = this._platform.context.requests.create(action, args);
         let request = this._platform.serverConnection.createRequest("sendRobotAction", {
             robot: robot,
             action: action,
             args: args
         });
         await this._platform.serverConnection.send(request);
-        return await action.resultPromise;
+        return await newreq.resultPromise;
     }
 
     resolveUserFetch(state, result) {

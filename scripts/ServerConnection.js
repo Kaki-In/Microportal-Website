@@ -2,9 +2,7 @@ import { EventHandler } from "../events/EventHandler.js";
 
 export class ServerConnection {
 
-    constructor(server, port) {
-        this._server = server;
-        this._port = port;
+    constructor() {
         this._conn = null;
         
         this._events = {
@@ -15,8 +13,8 @@ export class ServerConnection {
         };
     }
 
-    async start() {
-        let wsock = new WebSocket("ws://" + this._server + ":" + this._port + "/user");
+    start(server, port) {
+        let wsock = new WebSocket("ws://" + server + ":" + port + "/user");
 
         wsock.addEventListener("open", () => {
             console.log("Websocket: Connection open");

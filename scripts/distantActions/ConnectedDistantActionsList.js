@@ -6,7 +6,22 @@ export class ConnectedDistantActionsList {
                 platform.localActions.resolveUserFetch("success", args);
             },
             "robotActionSent": (platform, args) => {
-            }
+                let id = args.request;
+                platform.context.requests.registerRequestId(id);
+            },
+            "robotActionError": (platform, args) => {
+                let notification = platform.ui.notifications.createNotification("error");
+                notification.title = "Une erreur s'est produite lors de l'envoi d'une requête"
+                notification.text = args.message;
+            },
+            "requestProcessing": (platform, args) => {
+                let request = platform.context.requests.findRequestById(args.id);
+                request.state = "sent";
+            },
+            "requestProcessed": (platform, args) => {
+                let request = platform.context.requests.findRequestById(args.id);
+                request.result = args.result;
+            },
         }
     }
 

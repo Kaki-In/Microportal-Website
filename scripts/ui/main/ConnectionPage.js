@@ -33,6 +33,9 @@ export class ConnectionPage extends Component {
         } else if (result.state === "mail") {
             platform.localActions.startVerifyMailAddress(name, password);
         } else {
+            platform.context.shelve.username = name;
+            platform.context.shelve.password = password;
+
             let notification = platform.ui.notifications.createNotification("success");
             notification.title = "Connecté à " + result.result.user;
             notification.text = "Connexion effectuée avec succès";

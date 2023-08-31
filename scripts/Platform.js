@@ -9,22 +9,23 @@ import { Context } from "./context/Context.js";
 export class Platform {
 
     constructor() {
-        this._ui = new PlatformUI();
-        this._distantActions = new DistantActionsList();
-        this._localActions = new LocalActions(this);
+        this._ui = new PlatformUI(this);
         this._context = new Context();
-        this.loadConnection();
+        let address = this.context.shelve.address;
+        let port = this.context.shelve.port;
+        if ( address !== undefined && port !== undefined ) {
+            this.loadConnection(address, port);
+        }
     }
 
-    loadConnection( event, wait ) {
-        this._conn = new ServerConnection("kaki-v01", 8266);
+    loadConnection( server, port ) {
+        this._conn = new ServerConnection();
         this._conn.addEventListener("open", () => { this.load(); })
-        this._conn.addEventListener("close", (event) => { 
-            let wait = true;
-            this.loadConnection(event, true);
-        });
 
-        setTimeout(() => { this._conn.start();}, wait? 5000 : 0);
+        this.context.shelve.address = server;
+        this.context.shelve.port = port;
+
+        this._conn.start(server, port);
     }
     
     get ui() {
@@ -45,6 +46,9 @@ export class Platform {
 
     load(event) {
         this._context = new Context();
+        this._distantActions = new DistantActionsList();
+        this._localActions = new LocalActions(this);
+
         this._context.world.addEventListener("userChanged", async (user) => {
             this._distantActions = new ConnectedDistantActionsList();
             this._localActions = new ConnectedLocalActions(this);

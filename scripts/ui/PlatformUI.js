@@ -5,10 +5,10 @@ import { Notifications } from "./notifications/Notifications.js";
 
 export class PlatformUI {
 
-    constructor() {
+    constructor(platform) {
 
-        this._mainUI = new MainUI();
-        this._headerUI = new HeaderUI();
+        this._mainUI = new MainUI(platform);
+        this._headerUI = new HeaderUI(platform);
         this._notifications = new Notifications();
 
     }
@@ -30,7 +30,7 @@ export class PlatformUI {
         this.header.load(platform);
 
         platform.context.world.addEventListener("userChanged", () => {
-            this._mainUI = new ConnectedMainUI();
+            this._mainUI = new ConnectedMainUI(platform);
         })
     }
 

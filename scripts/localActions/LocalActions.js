@@ -5,6 +5,12 @@ export class LocalActions {
         this._connectResolve = null;
         this._createResolve = null;
         this._verifyResolve = null;
+
+        let username = platform.context.shelve.username;
+        let password = platform.context.shelve.password;
+        if ( username !== undefined && password !== undefined) {
+            this.connect(username, password);
+        }
     }
 
     async connect(name, password) {

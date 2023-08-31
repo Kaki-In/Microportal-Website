@@ -73,12 +73,28 @@ button.text:not([disabled]):hover {
     color : var(--colorButtonHover);
 }
 
+main div.main-div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 0px;
+    margin-top: var(--dimenMainCentralDivMargin);
+    margin-bottom: var(--dimenMainCentralDivMargin);
+}
+
+main div.main-div > div {
+    margin: auto;
+}
+
 main div.central-div {
     display: flex;
     position: relative;
     width: 100%;
     border-radius: 0px;
     background: var(--colorPrimary);
+    padding: var(--dimenMainPadding);
     margin: 0px;
     margin-top: var(--dimenMainCentralDivMargin);
     margin-bottom: var(--dimenMainCentralDivMargin);

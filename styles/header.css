@@ -42,7 +42,7 @@ header ul.header-list {
     scale: 1;
 }
 
-header ul.header-list > * {
+header ul.header-list > *:not(div.loading) {
     display: inline-block;
     flex-shrink: 0;
     height: 100%;

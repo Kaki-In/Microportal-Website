@@ -58,6 +58,7 @@ export class Request {
         if (this._id === null) {
             this._id = id;
             this._state = "waiting";
+            this._events.saved.emit();
         } else {
             throw new TypeError("this request already have an id");
         }

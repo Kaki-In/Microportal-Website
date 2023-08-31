@@ -17,7 +17,21 @@ export class WelcomePage extends Component{
     }
 
     async openPortal(platform) {
-        
+        const robotName = "84:0d:8e:b0:67:e4";
+        this._button.loading = true;
+
+        await platform.localActions.sendRobotAction(robotName, "setpin", {
+            pin: 5,
+            active: true
+        });
+        await platform.localActions.sendRobotAction(robotName, "sleep", {
+            time: 0.5
+        });
+        await platform.localActions.sendRobotAction(robotName, "setpin", {
+            pin: 5,
+            active: false
+        });
+        this._button.loading = false;
     }
 
 }

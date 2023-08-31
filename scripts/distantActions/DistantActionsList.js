@@ -6,6 +6,7 @@ export class DistantActionsList {
                 platform.localActions.resolveConnection("failed", args);
             },
             "connectionSuccess": (platform, args) => {
+                platform.localActions.resolveConnection("success", args);
                 platform.context.world.setUser(args.user, "");
             },
             "accountCreationFailed": (platform, args) => {

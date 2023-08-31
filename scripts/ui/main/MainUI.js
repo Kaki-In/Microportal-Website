@@ -5,15 +5,16 @@ import { Adapter } from "../../../components/Adapter.js";
 
 import { WelcomePage } from "./WelcomePage.js";
 import { CreationPage } from "./CreationPage.js";
+import { ServerSettingsPage } from "./ServerSettingsPage.js";
 import { ConnectionPage } from "./ConnectionPage.js";
 import { MailVerificationPage } from "./MailVerificationPage.js";
 
 export class MainUI extends MainComponent {
     
-    constructor() {
+    constructor(platform) {
         super(new Adapter());
 
-        let loader = new Loader();
+        let loader = new ServerSettingsPage(platform);
         this.adapter.content = loader;
     }
 
