@@ -21,8 +21,9 @@ export class Platform {
     loadConnection( server, port ) {
         this._conn = new ServerConnection();
         this._conn.addEventListener("open", () => { this.load(); })
+
         this._conn.addEventListener("close", (event) => {
-            if (! ( [1000, 1001, 1006].includes(event.code) || event.wasClean ) ) {
+            if (! ( [1000, 1001].includes(event.code) || event.wasClean ) ) {
                 let notification = this._ui.notifications.createNotification("error");
                 notification.title = "Impossible de joindre le serveur";
                 notification.text = "Une erreur s'est produite. Veuillez réessayer, ou indiquer un autre serveur.";
@@ -31,6 +32,8 @@ export class Platform {
 
         this.context.shelve.address = server;
         this.context.shelve.port = port;
+
+        this._ui.loadPlatform(this);
 
         this._conn.start(server, port);
     }
@@ -51,10 +54,12 @@ export class Platform {
         return this._context;
     }
 
-    load(event) {
+    load() {
         this._context = new Context();
         this._distantActions = new DistantActionsList();
         this._localActions = new LocalActions(this);
+
+        this._ui.loadPlatform(this);
 
         this._context.world.addEventListener("userChanged", async (user) => {
             this._distantActions = new ConnectedDistantActionsList();
@@ -66,11 +71,11 @@ export class Platform {
                 console.error("fetch failed");
             }
         })
-        this._ui.loadPlatform(this);
-
         this._conn.addEventListener("message", (message) => {
             this._distantActions.execute(platform, message);
         })
     }
 
 }
+
+self.Platform = Platform

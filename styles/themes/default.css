@@ -32,6 +32,10 @@
     --colorNotificationWarning: #ffb712;
     --colorNotificationInfo: var(--colorPrimary);
 
+    --colorListButtonBackground: #ddd;
+    --colorListTextBackground: white;
+    --colorListBorder: var(--colorPrimaryLight);
+
     --stringFontName: 'Ubuntu';
 
     --directionHeaderContent: row;

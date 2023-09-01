@@ -66,6 +66,7 @@ export class Form extends Component {
         p.appendChild(document.createElement("text")).textContent = text + (text[ -1 ] === " "? "" : " ") ;
         let button = appendChild(p, new Button(linktext));
         button.className = 'text';
+        button.addEventListener("click", func);
         this.element.insertBefore(p, this.button.element);
 
         this._alternatives.push(button);

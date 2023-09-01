@@ -1,6 +1,7 @@
 export class Component {
     constructor (element, parent) {
         this.__element__ = element;
+        element.component = this;
         this.__parent__ = null;
     }
 

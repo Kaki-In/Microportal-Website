@@ -22,6 +22,10 @@
         --dimenNotificationTextSize: 12px;
         --dimenNotificationStatusBar: 10px;
 
+        --dimenListBorder: 2px;
+        --dimenListPadding: 10px;
+        --dimenListTextSize: 19px;
+
         --dimenLoadingSize: 30px;
         --dimenLoadingPadding: 5px;
         --dimenLoadingSpanSize: 5px;

@@ -4,6 +4,7 @@ import { Loader } from "../../../components/Loader.js";
 import { Adapter } from "../../../components/Adapter.js";
 
 import { WelcomePage } from "./WelcomePage.js";
+import { UserPage } from "./UserSettingsPage.js";
 
 export class ConnectedMainUI extends MainComponent {
     
@@ -15,6 +16,10 @@ export class ConnectedMainUI extends MainComponent {
 
     openHome(platform) {
         this.adapter.content = new WelcomePage(platform);
+    }
+
+    openUserSettings(platform) {
+        this.adapter.content = new UserPage(platform);
     }
 
 }

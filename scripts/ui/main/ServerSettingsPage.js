@@ -1,35 +1,26 @@
 import { appendChild, Component } from "../../../components/Component.js";
+import { ServerConnectionAdapter } from "./disconnected/ServerConnectionAdapter.js";
 import { Form } from "../../../components/Form.js";
 
 export class ServerSettingsPage extends Component {
 
     constructor (platform) {
-        let element = createServerSettings();
+        let element = createServerSettings(platform);
 
         super(element[ 0 ]);
-
-        this._form = element[ 1 ];
-        this._form.inputs[ 0 ].value = platform.context.shelve.address || "";
-        this._form.addEventListener("submit", (serverName) => {
-            this._form.loading = true;
-            platform.loadConnection(serverName, 8266);
-        });
-        this._form.checkValidity();
+        this._adapter = element[ 1 ];
     }
 
 }
 
-function createServerSettings() {
+function createServerSettings(platform) {
     let maindiv = document.createElement("div");
     maindiv.className = "main-div";
 
     let centraldiv = maindiv.appendChild(document.createElement("div"));
     centraldiv.className = "central-div";
 
-    let form = new Form("Se connecter à un serveur microportal");
-    form.addInput("Adresse du serveur:", "text", true);
-
-    form.button.element.textContent = "Se connecter";
+    let form = new ServerConnectionAdapter(platform);
 
     appendChild(centraldiv, form);
 

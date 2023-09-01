@@ -23,6 +23,7 @@ export class HeaderContent extends Component {
         let button = new Button(name);
         button.className = "header-button"
         button.addEventListener("click", func);
+        button.addEventListener("click", () => {document.querySelector("header").classList.remove("open");});
 
         appendChild(this._list, button);
 

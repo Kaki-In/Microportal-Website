@@ -21,6 +21,9 @@ export class HeaderConnected  extends HeaderContent {
         platform.context.world.user.addEventListener("iconChanged", (icon) => {
             this.updateUserIcon(icon);
         })
+        this._userButton.addEventListener("click", () => {
+            platform.ui.main.openUserSettings(platform);
+        });
     }
 
     updateUserIcon(icon) {
