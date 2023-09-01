@@ -46,7 +46,7 @@ header div.menu-burger:before {
     left: 0px;
     background: var(--colorMenuBurger);
     border-radius: var(--dimenMenuBurgerLine);
-    transform: translateY(400%);
+    transform: translateY(200%);
     transition: var(--timeHeaderCloseTransition) all var(--timingFunctionHeaderClose);
 }
 
@@ -59,23 +59,23 @@ header div.menu-burger:after {
     left: 0px;
     background: var(--colorMenuBurger);
     border-radius: var(--dimenMenuBurgerLine);
-    transform: translateY(200%);
+    transform: translateY(400%);
     transition: var(--timeHeaderCloseTransition) all var(--timingFunctionHeaderClose);
 }
 
 header.open div.menu-burger {
-    background: #0000;
     transition: var(--timeHeaderOpenTransition) all var(--timingFunctionHeaderOpen);
-    transform: translateY(0) rotate(45deg);
+    transform: translateY(100%) rotate(45deg);
 }
 
 header.open div.menu-burger:before {
-    transform: translateY(0) rotate(45deg);
+    background: #0000;
+    transform: translateX(-100%) rotate(45deg);
     transition: var(--timeHeaderOpenTransition) all var(--timingFunctionHeaderOpen);
 }
 
 header.open div.menu-burger:after {
-    transform: translateY(0) rotate(-45deg);
+    transform: rotate(90deg);
     transition: var(--timeHeaderOpenTransition) all var(--timingFunctionHeaderOpen);
 }
 
