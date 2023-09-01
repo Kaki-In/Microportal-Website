@@ -1,0 +1,44 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        --colorPrimary: #12b7ff;
+        --colorPrimaryLight: #95ccff;
+        --colorPrimaryDark: #095880;
+    
+        --colorSecondary: #00BBC1;
+        --colorSecondaryLight: #80DDDA;
+        --colorSecondaryDark: #00676A;
+    
+        --colorBodyBackground: black;
+        --colorMainBackground: black;
+        --colorText: white;
+        --colorTitle: var(--colorPrimaryLight);
+        --colorLoadingBackground: #fff8;
+        --colorLoadingSpan: var(--colorSecondaryDark);
+    
+        --colorButton: var(--colorSecondary);
+        --colorButtonBorder: var(--colorSecondary);
+        --colorButtonHover: var(--colorSecondaryDark);
+    
+        --colorHeaderBottomBar: var(--colorPrimaryDark);
+        --colorHeaderTopBar: var(--colorPrimary);
+    
+        --colorInputBackground: var(--colorMainBackground);
+        --colorInputBorder: var(--colorPrimary);
+        --colorInputDisabledBorder: var(--colorPrimaryLight);
+        --colorInputBorderFocus: var(--colorPrimaryDark);
+    
+        --colorNotificationBackground: var(--colorSecondaryLight);
+        --colorNotificationBorder: var(--colorSecondaryLight);
+        --colorNoficationCloseButtonCross: black;
+    
+        --colorNotificationError: red;
+        --colorNotificationSuccess: #12b723;
+        --colorNotificationWarning: #ffb712;
+        --colorNotificationInfo: var(--colorPrimary);
+    
+        --colorListButtonBackground: #4c4c4c;
+        --colorListTextBackground: black;
+        --colorListBorder: var(--colorPrimaryLight);
+    }
+
+}

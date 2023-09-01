@@ -4,7 +4,7 @@ import { Menu } from "../../../../components/Menu.js";
 export class ServersMenu extends Menu {
 
     constructor (adapter, platform) {
-        super("Se connecter à un serveur Microportal");
+        super("Se connecter à un serveur microportal");
 
         let knownServers = platform.context.shelve.knownServers || {};
 
@@ -19,7 +19,6 @@ export class ServersMenu extends Menu {
             });
             this.addOption("Supprimer", function() {
                 let index = knownServers.indexOf(server);
-                console.log(index);
                 knownServers.splice(index, 1);
                 platform.context.shelve.knownServers = knownServers;
                 adapter.update(platform);

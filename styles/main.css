@@ -29,10 +29,12 @@ main > * {
 
 p {
     font-size: var(--dimenParagraphSize);
+    color: var(--colorText);
 }
 
 button {
     display: flex;
+    color: var(--colorText);
     justify-content: center;
     background: var(--colorButton);
     border : var(--dimenButtonBorder) solid var(--colorButtonBorder);
@@ -52,7 +54,8 @@ button img.active {
 }
 
 button.text {
-    display: inline;
+    flex-grow: 1;
+    display: inline-block;
     background: none;
     border: none;
     border-bottom: 1px solid var(--colorButtonBorder);
@@ -117,7 +120,8 @@ main div.central-div > div {
 }
 
 h1 {
-    color: var(--colorPrimaryDark);
+    color: var(--colorTitle);
+    font-size: var(--dimenTitleSize);
 }
 
 .form h1, .form p.alternative-text {
@@ -127,6 +131,11 @@ h1 {
 div.list {
     display: flex;
     flex-direction: column;
+}
+
+div.list h1 {
+    display: block;
+    margin-top: 0px;
 }
 
 div.list > *:not(h1) {
@@ -145,6 +154,9 @@ div.list button {
 div.list p {
     display: block;
     margin: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
     font-size: var(--dimenListTextSize);
     background: var(--colorListTextBackground);
 }
@@ -152,7 +164,8 @@ div.list p {
 input {
     display: block;
     position: relative;
-    width: calc( 100% - ( var(--dimenButtonPadding) + 2 * var(--dimenButtonBorder) ) );
+    color: var(--colorText);
+    width: calc( 100% - ( var(--dimenButtonPadding) * 2 ) );
     background: var(--colorInputBackground);
     padding: var(--dimenInputPadding);
     border: var(--dimenInputBorder) solid var(--colorInputBorder);
@@ -160,6 +173,7 @@ input {
     margin-top: var(--dimenInputMargin);
     margin-bottom: var(--dimenInputMargin);
     transition: var(--timeButtonHoverOutTransition) all ease-out;
+    font-size: var(--dimenInputSize);
 }
 
 input[ disabled ] {
@@ -172,6 +186,8 @@ input:focus {
 }
 
 label.input-label {
+    color: var(--colorText);
     display: inline-block;
     margin-top: var(--dimenInputLabelMarginTop);
+    font-size: var(--dimenLabelSize);
 }

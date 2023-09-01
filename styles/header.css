@@ -61,9 +61,14 @@ header ul.header-list > *:not(div.loading) {
 }
 
 @media (orientation: portrait) {
-    header ul.header-list > *:not(div.loading) {
-        padding-right: 50%;
-        padding-left: 50%;
+    header ul.header-list > *:not(div.loading):not(img) {
+        width: 100%;
+    }
+
+    header ul.header-list > img {
+        width: auto;
+        padding-right: 100%;
+        padding-left: 100%;
     }
 
     header.open ul.header-list > *:not(div.loading) {
@@ -93,4 +98,12 @@ header ul.header-list button:hover {
 
 header ul.header-list img {
     height: 100%;
+}
+
+
+header div.burger {
+    position: relative;
+    display: inline-block;
+    width: var(--headerBurgerSize);
+    height: var(--headerBurgerSize);
 }

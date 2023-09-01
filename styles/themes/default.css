@@ -9,6 +9,7 @@
 
     --colorBodyBackground: white;
     --colorMainBackground: white;
+    --colorLoadingBackground: #0008;
     --colorLoadingSpan: var(--colorSecondaryLight);
 
     --colorButton: var(--colorSecondary);
@@ -26,6 +27,7 @@
     --colorNotificationBackground: var(--colorSecondaryLight);
     --colorNotificationBorder: var(--colorSecondaryDark);
     --colorNoficationCloseButtonCross: white;
+    --colorNotificationText: black;
 
     --colorNotificationError: red;
     --colorNotificationSuccess: #12b723;
@@ -34,6 +36,8 @@
 
     --colorListButtonBackground: #ddd;
     --colorListTextBackground: white;
+    --colorText: white;
+    --colorTitle: var(--colorPrimaryDark);
     --colorListBorder: var(--colorPrimaryLight);
 
     --stringFontName: 'Ubuntu';
@@ -54,11 +58,11 @@
     --timeButtonHoverInTransition: 0.1s;
     --timeButtonHoverOutTransition: 0.2s;
     --timeNotificationAppearition: 0.5s;
-    --timeHeaderOpenTransition: 0.3;
+    --timeHeaderOpenTransition: 0.3s;
     --timeHeaderCloseTransition: 0.2s;
 
     --timingFunctionNotificationAppearition: ease-out;
     --timingFunctionHeaderClose: ease-out;
-    --timingFunctionHeaderOpen: ease-out;
+    --timingFunctionHeaderOpen: ease-in;
 }
 

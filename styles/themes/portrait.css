@@ -10,24 +10,24 @@
         --dimenHeaderButtonPadding: 15px;
         --dimenHeaderHoverHeight: 100%;
 
-        --dimenMainMargin: 10px;
-        --dimenMainPadding: 30px;
-        --dimenMainRadius: 10px;
+        --dimenMainMargin: 30px;
+        --dimenMainPadding: 70px;
+        --dimenMainRadius: 0px;
 
         --dimenMainCentralDivMargin: 50px;
 
         --dimenNotificationsDivMargin: 20px;
-        --dimenNotificationPadding: 20px;
-        --dimenNotificationSpace: 10px;
+        --dimenNotificationPadding: 30px;
+        --dimenNotificationSpace: 15px;
         --dimenNotificationBorder: 2px;
-        --dimenNotificationCloseButtonCross: 7px;
-        --dimenNotificationTitleSize: 15px;
-        --dimenNotificationTextSize: 12px;
+        --dimenNotificationCloseButtonCross: 17px;
+        --dimenNotificationTitleSize: 40px;
+        --dimenNotificationTextSize: 30px;
         --dimenNotificationStatusBar: 10px;
 
-        --dimenListBorder: 2px;
-        --dimenListPadding: 10px;
-        --dimenListTextSize: 25px;
+        --dimenListBorder: 3px;
+        --dimenListPadding: 30px;
+        --dimenListTextSize: 40px;
 
         --dimenLoadingSize: 30px;
         --dimenLoadingPadding: 5px;
@@ -36,17 +36,20 @@
 
         --dimenButtonBorder: 0px;
         --dimenButtonBorderRadius: 5px;
-        --dimenButtonPadding: 20px;
-        --dimenButtonTextSize: 28px;
+        --dimenButtonPadding: 30px;
+        --dimenButtonTextSize: 40px;
 
-        --dimenInputBorder: 1px;
-        --dimenInputPadding: 10px;
+        --dimenInputBorder: 3px;
+        --dimenInputPadding: 20px;
         --dimenInputBorderRadius: 5px;
         --dimenInputMargin: 10px;
+        --dimenInputSize: 35px;
 
         --dimenInputLabelMarginTop: 10px;
 
-        --dimenParagraphSize: 16px;
+        --dimenTitleSize: 50px;
+        --dimenParagraphSize: 35px;
+        --dimenLabelSize: 30px;
 
         --displayHeaderOpenMenuText: inline-block;
     

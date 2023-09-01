@@ -104,4 +104,5 @@ section#notifications > div h3 {
 
 section#notifications > div p {
     font-size: var(--dimenNotificationTextSize);
+    color: var(--colorNotificationText);
 }

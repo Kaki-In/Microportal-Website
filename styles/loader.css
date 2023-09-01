@@ -3,7 +3,7 @@ div.loading {
     position: relative;
     width: var(--dimenLoadingSize);
     height: var(--dimenLoadingSize);
-    background: #0008;
+    background: var(--colorLoadingBackground);
     padding: var(--dimenLoadingPadding);
     border-radius: 100%;
     animation: turnload var(--timeLoadingAnimation) infinite ease-in-out;

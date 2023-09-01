@@ -10,6 +10,7 @@ export class HeaderContent extends Component {
         super(div);
 
         this._logo = div.querySelector("img");
+        this._logo.addEventListener("click", () => {document.querySelector("header").classList.remove("open");});
         this._list = div.querySelector("ul");
 
     }

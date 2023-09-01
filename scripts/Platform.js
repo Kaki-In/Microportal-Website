@@ -30,6 +30,27 @@ export class Platform {
             }
         })
 
+        let knownServers = this.context.shelve.knownServers || [];
+
+        let serverSaves = {
+            name: server, 
+            port: port
+        };
+
+        for (let index = 0;index < knownServers.length; index++ ) {
+            if ( knownServers[ index ].name === serverSaves.name && knownServers[ index ].port === serverSaves.port ) {
+                knownServers.splice(index, 1);
+            }
+        }
+
+        knownServers.splice(0, 0, serverSaves);
+        this.context.shelve.knownServers = knownServers;
+
+        if ( this.context.shelve.address !== server ) {
+            this.context.shelve.username = undefined;
+            this.context.shelve.password = undefined;
+        }
+
         this.context.shelve.address = server;
         this.context.shelve.port = port;
 

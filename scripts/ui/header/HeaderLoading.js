@@ -8,9 +8,9 @@ export class HeaderLoading  extends HeaderContent {
 
         let loader = new Loader();
 
-        this.addSpace();
-        this.addComponent(loader);
-        this.addSpace();
+        this.setLogo("icon192x192.png", () => {
+            platform.serverConnection.close();
+        });
     }
 
 }

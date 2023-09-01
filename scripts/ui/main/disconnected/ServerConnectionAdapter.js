@@ -24,12 +24,6 @@ export class ServerConnectionAdapter extends Adapter {
         this.content = new ServerCreationPage(this, platform);
         this.content.addEventListener("submit", (serverName) => {
             this.content.loading = true;
-            let knownServers = platform.context.shelve.knownServers || [];
-            knownServers.push({
-                name: serverName, 
-                port: 8266
-            });
-            platform.context.shelve.knownServers = knownServers;
             platform.loadConnection(serverName, 8266);
         });
     }
