@@ -45,7 +45,7 @@ button {
     font-size: var(--dimenButtonTextSize);
 }
 
-button * {
+button:not(.text) * {
     align-self: center;
     vertical-align: middle;
 }
