@@ -23,7 +23,11 @@ export class Platform {
         this._conn.addEventListener("open", () => { this.load(); })
 
         this._conn.addEventListener("close", (event) => {
-            console.dir(event);
+            if ( event.name === "SecurityError" && event.code === 18) {
+                let url = document.location.href;
+                url = url.replace("https://", "http://");
+                document.location.href = url;
+            }
             if (! ( [1000, 1001].includes(event.code) || event.wasClean ) ) {
                 let notification = this._ui.notifications.createNotification("error");
                 notification.title = "Impossible de joindre le serveur";
