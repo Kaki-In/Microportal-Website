@@ -38,7 +38,7 @@ export class ServerConnection {
             });
             this._conn = wsock;
         } catch (e) {
-            this.close.emit(e);
+            this._events.close.emit(e);
         }
     }
     
