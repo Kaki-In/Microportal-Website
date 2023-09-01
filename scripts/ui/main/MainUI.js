@@ -14,13 +14,11 @@ export class MainUI extends MainComponent {
     constructor(platform) {
         super(new Adapter());
 
-        let loader = new ServerSettingsPage(platform);
-        this.adapter.content = loader;
+        this.adapter.content = new ServerSettingsPage(platform);
     }
 
     load(platform) {
         this.adapter.content = new WelcomePage(platform);
-        platform.serverConnection.addEventListener("close", () => { this.reset(); })
     }
 
     openHome(platform) {

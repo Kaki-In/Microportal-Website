@@ -1,9 +1,9 @@
 section#notifications {
     position: fixed;
     display: flex;
-    top: 0px;
     right: 0px;
     bottom: 0px;
+    max-height: 100%;
     margin: var(--dimenNotificationsDivMargin);
     z-index : var(--zIndexNotificationsDiv);
     flex-direction: column;

@@ -52,6 +52,10 @@ export class Form extends Component {
         return this._button;
     }
 
+    get inputs() {
+        return this._inputs;
+    }
+
     get alternatives() {
         return this._alternatives;
     }

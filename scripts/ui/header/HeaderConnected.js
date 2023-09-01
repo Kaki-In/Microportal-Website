@@ -8,7 +8,7 @@ export class HeaderConnected  extends HeaderContent {
         super();
 
         this.setLogo("icon192x192.png", () => {
-            platform.ui.main.openHome()
+            platform.serverConnection.close();
         });
         this.addSpace();
         this.addButton("Communauté");

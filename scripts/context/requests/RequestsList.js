@@ -15,7 +15,6 @@ export class RequestsList {
     findRequestById(id) {
         for (let request of this._requests) {
             if ( request.id === id ) {
-                console.log(request);
                 return request;
             }
         }
@@ -23,15 +22,12 @@ export class RequestsList {
     }
 
     create(name, args) {
-        console.log("create");
-        console.log(this);
         let request = new Request(name, args);
         this._waitingRequests.push(request);
         request.addEventListener("saved", () => {
             this._requests.push(request);
             this._events.requestSaved.emit(request);
         })
-        console.log(this);
         return request;
     }
 
@@ -45,12 +41,11 @@ export class RequestsList {
     }
 
     registerRequestId(id) {
-        let request = this._waitingRequests[ 0 ];
+        let request = this._waitingRequests.shift();
         if (request === undefined) {
             throw new ReferenceError("there is not waiting request");
         } else {
             request.id = id;
-            this._waitingRequests.slice(0, 1);
         }
     }
 

@@ -9,8 +9,8 @@ import { Context } from "./context/Context.js";
 export class Platform {
 
     constructor() {
-        this._ui = new PlatformUI(this);
         this._context = new Context();
+        this._ui = new PlatformUI(this);
         let address = this.context.shelve.address;
         let port = this.context.shelve.port;
         if ( address !== undefined && port !== undefined ) {
@@ -21,6 +21,13 @@ export class Platform {
     loadConnection( server, port ) {
         this._conn = new ServerConnection();
         this._conn.addEventListener("open", () => { this.load(); })
+        this._conn.addEventListener("close", (event) => {
+            if (! ( [1000, 1001, 1006].includes(event.code) || event.wasClean ) ) {
+                let notification = this._ui.notifications.createNotification("error");
+                notification.title = "Impossible de joindre le serveur";
+                notification.text = "Une erreur s'est produite. Veuillez réessayer, ou indiquer un autre serveur.";
+            }
+        })
 
         this.context.shelve.address = server;
         this.context.shelve.port = port;

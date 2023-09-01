@@ -20,17 +20,18 @@ export class WelcomePage extends Component{
         const robotName = "84:0d:8e:b0:67:e4";
         this._button.loading = true;
 
-        await platform.localActions.sendRobotAction(robotName, "setpin", {
-            pin: 5,
+        let request1 = platform.localActions.sendRobotAction(robotName, "setPin", {
+            pin: 4,
             active: true
         });
-        await platform.localActions.sendRobotAction(robotName, "sleep", {
-            time: 0.5
+        let request2 = platform.localActions.sendRobotAction(robotName, "sleep", {
+            time: 0.05
         });
-        await platform.localActions.sendRobotAction(robotName, "setpin", {
-            pin: 5,
+        let request3 = platform.localActions.sendRobotAction(robotName, "setPin", {
+            pin: 4,
             active: false
         });
+        await Promise.all([request1, request2, request3]);
         this._button.loading = false;
     }
 

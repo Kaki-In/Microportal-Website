@@ -32,10 +32,13 @@ export class PlatformUI {
         platform.context.world.addEventListener("userChanged", () => {
             this._mainUI = new ConnectedMainUI(platform);
         })
+        platform.serverConnection.addEventListener("close", () => { 
+            this._mainUI = new MainUI(platform);
+        })
     }
 
-    reset() {
-        this._mainUI = new MainUI();
+    reset(platform) {
+        this._mainUI = new MainUI(platform);
         this._headerUI.reset();
     }
 

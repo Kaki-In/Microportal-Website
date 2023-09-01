@@ -9,10 +9,12 @@ export class ServerSettingsPage extends Component {
         super(element[ 0 ]);
 
         this._form = element[ 1 ];
+        this._form.inputs[ 0 ].value = platform.context.shelve.address || "";
         this._form.addEventListener("submit", (serverName) => {
-            console.log(platform);
+            this._form.loading = true;
             platform.loadConnection(serverName, 8266);
         });
+        this._form.checkValidity();
     }
 
 }

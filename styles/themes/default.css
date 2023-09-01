@@ -34,50 +34,15 @@
 
     --stringFontName: 'Ubuntu';
 
+    --directionHeaderContent: row;
+    --justifyContentHeaderContent: space-around;
+
     --zIndexHeader: 10;
     --zIndexHeaderImage: 1;
 
     --zIndexNotificationsDiv: 15;
 
-    --dimenHeaderHeight: 50px;
-    --dimenHeaderSpaceElements: 10px;
-    --dimenHeaderBottomBar: 1px;
-    --dimenHeaderTopBar: 1px;
-    --dimenHeaderButtonPadding: 15px;
-
-    --dimenMainMargin: 10px;
-    --dimenMainPadding: 30px;
-    --dimenMainRadius: 10px;
-
-    --dimenMainCentralDivMargin: 50px;
-
-    --dimenNotificationsDivMargin: 20px;
-    --dimenNotificationPadding: 20px;
-    --dimenNotificationSpace: 10px;
-    --dimenNotificationBorder: 2px;
-    --dimenNotificationCloseButtonCross: 7px;
-    --dimenNotificationTitleSize: 15px;
-    --dimenNotificationTextSize: 12px;
-    --dimenNotificationStatusBar: 10px;
-
-    --dimenLoadingSize: 30px;
-    --dimenLoadingPadding: 5px;
-    --dimenLoadingSpanSize: 5px;
-    --dimenLoadingSpanRadius: 2px;
-
-    --dimenButtonBorder: 0px;
-    --dimenButtonBorderRadius: 5px;
-    --dimenButtonPadding: 20px;
-    --dimenButtonTextSize: 18px;
-
-    --dimenInputBorder: 1px;
-    --dimenInputPadding: 10px;
-    --dimenInputBorderRadius: 5px;
-    --dimenInputMargin: 10px;
-
-    --dimenInputLabelMarginTop: 10px;
-
-    --dimenParagraphSize: 16px;
+    --displayHeaderOpenMenuText: none;
 
     --timeLoadingAnimation: 2s;
     --timeImageHoverInTransition: 0.1s;
@@ -85,7 +50,11 @@
     --timeButtonHoverInTransition: 0.1s;
     --timeButtonHoverOutTransition: 0.2s;
     --timeNotificationAppearition: 0.5s;
+    --timeHeaderOpenTransition: 0.3;
+    --timeHeaderCloseTransition: 0.2s;
 
     --timingFunctionNotificationAppearition: ease-out;
+    --timingFunctionHeaderClose: ease-out;
+    --timingFunctionHeaderOpen: ease-out;
 }
 

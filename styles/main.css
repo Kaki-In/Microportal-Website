@@ -32,7 +32,7 @@ p {
 }
 
 button {
-    display: inline-block;
+    display: flex;
     background: var(--colorButton);
     border : var(--dimenButtonBorder) solid var(--colorButtonBorder);
     border-radius: var(--dimenButtonBorderRadius);
@@ -40,6 +40,10 @@ button {
     transition: all var(--timeButtonHoverOutTransition);
     font-family: var(--stringFontName), sans-serif;
     font-size: var(--dimenButtonTextSize);
+}
+
+button * {
+    align-self: center;
 }
 
 button img.active {
@@ -94,7 +98,8 @@ main div.central-div {
     width: 100%;
     border-radius: 0px;
     background: var(--colorPrimary);
-    padding: var(--dimenMainPadding);
+    padding-top: var(--dimenMainPadding);
+    padding-bottom: var(--dimenMainPadding);
     margin: 0px;
     margin-top: var(--dimenMainCentralDivMargin);
     margin-bottom: var(--dimenMainCentralDivMargin);

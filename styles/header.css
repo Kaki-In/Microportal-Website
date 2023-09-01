@@ -10,6 +10,16 @@ header {
 
     border-bottom: var(--dimenHeaderBottomBar) solid var(--colorHeaderBottomBar);
     border-top: var(--dimenHeaderTopBar) solid var(--colorHeaderTopBar);
+    transition: var(--timeHeaderCloseTransition) all var(--timingFunctionHeaderClose);
+}
+
+header.open {
+    height: calc( var(--dimenHeaderHoverHeight) + 0px);
+    transition: var(--timeHeaderOpenTransition) all var(--timingFunctionHeaderOpen);
+}
+
+header button.open-menu {
+    display: var(--displayHeaderOpenMenuText);
 }
 
 header > div {
@@ -18,34 +28,45 @@ header > div {
     height : 100%;
 }
 
-header > div > img {
-    position: absolute;
+header ul.header-list > img {
     height: var(--dimenHeaderHeight);
     transition: all var(--timeImageHoverOutTransition) ease-out;
     z-index: var(--zIndexHeaderImage);
     cursor: pointer;
 }
 
-header > div > img:hover {
+header ul.header-list > img:hover {
     background: var(--colorPrimaryDark);
     transition: all var(--timeImageHoverInTransition) ease-out;
 }
 
 header ul.header-list {
     display: flex;
-    flex-direction: row;
+    flex-direction: var(--directionHeaderContent);
     align-items: center;
-    justify-content: space-around;
+    justify-content: var(--justifyContentHeaderContent);
     width: 100%;
     margin: 0px;
     padding: 0px;
     scale: 1;
+    overflow: hidden;
 }
 
 header ul.header-list > *:not(div.loading) {
-    display: inline-block;
     flex-shrink: 0;
     height: 100%;
+    transition: var(--timeHeaderCloseTransition) all var(--timingFunctionHeaderClose);
+}
+
+@media (orientation: portrait) {
+    header ul.header-list > *:not(div.loading) {
+        padding-right: 50%;
+        padding-left: 50%;
+    }
+
+    header.open ul.header-list > *:not(div.loading) {
+        height: auto;
+    }
 }
 
 header ul.header-list span {

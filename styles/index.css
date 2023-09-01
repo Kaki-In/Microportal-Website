@@ -5,7 +5,8 @@
 
 @import url("./themes/default.css");
 @import url("./themes/dark.css");
-@import url("./themes/phone.css");
+@import url("./themes/landscape.css");
+@import url("./themes/portrait.css");
 
 * {
     outline: none;

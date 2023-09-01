@@ -1,5 +1,6 @@
 import { Component, appendChild, removeChild } from "./Component.js";
 import { Button } from "./Button.js";
+import { HeaderBurger } from "./HeaderBurger.js";
 
 export class HeaderContent extends Component {
 
@@ -48,12 +49,22 @@ export class HeaderContent extends Component {
 function createHeaderContent() {
     let div = document.createElement("div");
 
-    let logo = document.createElement("img");
-    div.appendChild(logo);
-
     let list = document.createElement("ul");
     list.className = "header-list";
     div.appendChild(list);
+
+    let button = new Button("MENU");
+    appendChild(list, button);
+    button.element.children[ 0 ].replaceWith(new HeaderBurger().element);
+
+    let logo = document.createElement("img");
+    list.appendChild(logo);
+
+    button.addEventListener("click", () => {
+        document.querySelector("header").classList.toggle("open");
+    });
+
+    button.className = "open-menu";
 
     return div;
 }
