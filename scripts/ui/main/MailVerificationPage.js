@@ -20,9 +20,7 @@ export class MailVerificationPage extends Component{
         };
 
         platform.ui.title = "Vérifiez votre adresse mail";
-
-        this.loadPlatform(platform);
-    }
+   }
 
     get form () {
         return this._form;
