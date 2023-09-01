@@ -95,12 +95,14 @@ main div.main-div {
 
 main div.main-div > div {
     margin: auto;
+    max-width: var(--dimenMainMaxWidth);
 }
 
 main div.central-div {
     display: flex;
     position: relative;
     width: 100%;
+    max-width: 100%!important;
     border-radius: 0px;
     background: var(--colorPrimary);
     padding-top: var(--dimenMainPadding);
