@@ -18,10 +18,7 @@ export class CreationPage extends Component{
             platform.ui.main.openConnectionPage(platform);
         })
 
-        this.loadPlatform(platform);
-    }
-
-    loadPlatform(platform) {
+        platform.ui.title = "Créer un compte";
     }
 
     get form () {

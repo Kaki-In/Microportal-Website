@@ -8,6 +8,8 @@ export class WelcomePage extends Component{
         super(element);
 
         this.loadPlatform(platform);
+
+        platform.ui.title = undefined;
     }
 
     loadPlatform(platform) {

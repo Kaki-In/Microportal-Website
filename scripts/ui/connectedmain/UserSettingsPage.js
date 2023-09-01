@@ -16,6 +16,7 @@ export class UserPage extends Component {
             platform.serverConnection.close();
         })
 
+        platform.ui.title = "Paramètres de l'utilisateur";
     }
 
     async openPortal(platform) {

@@ -19,10 +19,9 @@ export class MailVerificationPage extends Component{
             password: password
         };
 
-        this.loadPlatform(platform);
-    }
+        platform.ui.title = "Vérifiez votre adresse mail";
 
-    loadPlatform(platform) {
+        this.loadPlatform(platform);
     }
 
     get form () {

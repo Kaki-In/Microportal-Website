@@ -10,7 +10,8 @@ export class Platform {
 
     constructor() {
         this._context = new Context();
-        this._ui = new PlatformUI(this);
+        this._ui = new PlatformUI();
+        this._ui.load(this);
         let address = this.context.shelve.address;
         let port = this.context.shelve.port;
         if ( address !== undefined && port !== undefined ) {

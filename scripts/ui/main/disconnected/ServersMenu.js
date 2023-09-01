@@ -24,6 +24,7 @@ export class ServersMenu extends Menu {
                 adapter.update(platform);
             });
         }
+        platform.ui.title = "Connexion au serveur";
     }
 
 }

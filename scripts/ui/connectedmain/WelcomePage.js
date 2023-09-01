@@ -14,6 +14,7 @@ export class WelcomePage extends Component{
         })
         this._button = button;
 
+        platform.ui.title = platform.context.world.user.name;
     }
 
     async openPortal(platform) {

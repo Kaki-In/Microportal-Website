@@ -16,6 +16,8 @@ export class ServerCreationPage extends Form {
         this.addInput("Adresse du serveur:", "text", true);
 
         this.button.element.textContent = "Se connecter";
+
+        platform.ui.title = "Connexion au serveur";
     }
 
 }

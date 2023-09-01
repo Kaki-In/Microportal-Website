@@ -18,7 +18,7 @@ export class ConnectionPage extends Component {
             platform.ui.main.openCreationPage(platform);
         })
 
-        this.loadPlatform(platform);
+        platform.ui.title = "Se connecter";
     }
 
     async submit (platform, name, password) {
@@ -44,9 +44,6 @@ export class ConnectionPage extends Component {
 
     get form () {
         return this._form;
-    }
-
-    loadPlatform(platform) {
     }
 
 }
