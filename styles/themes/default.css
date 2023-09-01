@@ -18,6 +18,7 @@
 
     --colorHeaderBottomBar: var(--colorPrimaryDark);
     --colorHeaderTopBar: var(--colorPrimary);
+    --colorMenuBurger: black;
 
     --colorInputBackground: var(--colorMainBackground);
     --colorInputBorder: var(--colorPrimary);

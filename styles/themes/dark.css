@@ -21,7 +21,8 @@
     
         --colorHeaderBottomBar: var(--colorPrimaryDark);
         --colorHeaderTopBar: var(--colorPrimary);
-    
+        --colorMenuBurger: white;
+
         --colorInputBackground: var(--colorMainBackground);
         --colorInputBorder: var(--colorPrimary);
         --colorInputDisabledBorder: var(--colorPrimaryLight);

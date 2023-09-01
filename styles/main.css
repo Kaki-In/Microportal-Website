@@ -47,6 +47,7 @@ button {
 
 button * {
     align-self: center;
+    vertical-align: middle;
 }
 
 button img.active {

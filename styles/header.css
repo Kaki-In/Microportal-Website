@@ -24,6 +24,61 @@ header button.open-menu {
     display: var(--displayHeaderOpenMenuText);
 }
 
+header div.menu-burger {
+    display: inline-block;
+    position: relative;
+    opacity: 1;
+    width: var(--dimenMenuBurger);
+    height: var(--dimenMenuBurgerLine);
+    background: var(--colorMenuBurger);
+    border-radius: var(--dimenMenuBurgerLine);
+    margin: var(--dimenMenuBurgerMargin);
+    margin-bottom: calc(var(--dimenMenuBurgerMargin) + var(--dimenMenuBurgerLine) * 4);
+    transition: var(--timeHeaderCloseTransition) all var(--timingFunctionHeaderClose);
+}
+
+header div.menu-burger:before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    width: var(--dimenMenuBurger);
+    height: var(--dimenMenuBurgerLine);
+    left: 0px;
+    background: var(--colorMenuBurger);
+    border-radius: var(--dimenMenuBurgerLine);
+    transform: translateY(400%);
+    transition: var(--timeHeaderCloseTransition) all var(--timingFunctionHeaderClose);
+}
+
+header div.menu-burger:after {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    width: var(--dimenMenuBurger);
+    height: var(--dimenMenuBurgerLine);
+    left: 0px;
+    background: var(--colorMenuBurger);
+    border-radius: var(--dimenMenuBurgerLine);
+    transform: translateY(200%);
+    transition: var(--timeHeaderCloseTransition) all var(--timingFunctionHeaderClose);
+}
+
+header.open div.menu-burger {
+    background: #0000;
+    transition: var(--timeHeaderOpenTransition) all var(--timingFunctionHeaderOpen);
+    transform: translateY(0) rotate(45deg);
+}
+
+header.open div.menu-burger:before {
+    transform: translateY(0) rotate(45deg);
+    transition: var(--timeHeaderOpenTransition) all var(--timingFunctionHeaderOpen);
+}
+
+header.open div.menu-burger:after {
+    transform: translateY(0) rotate(-45deg);
+    transition: var(--timeHeaderOpenTransition) all var(--timingFunctionHeaderOpen);
+}
+
 header > div {
     display: flex;
     width : 100%;

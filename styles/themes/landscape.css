@@ -6,6 +6,9 @@
         --dimenHeaderTopBar: 1px;
         --dimenHeaderButtonPadding: 15px;
         --dimenHeaderHoverHeight: var(--dimenHeaderHeight);
+        --dimenMenuBurger: 0px;
+        --dimenMenuBurgerLine: 0px;
+        --dimenMenuBurgerMargin: 0px;
 
         --dimenMainMargin: 10px;
         --dimenMainPadding: 30px;

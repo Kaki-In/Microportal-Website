@@ -9,6 +9,9 @@
         --dimenHeaderTopBar: 1px;
         --dimenHeaderButtonPadding: 15px;
         --dimenHeaderHoverHeight: 100%;
+        --dimenMenuBurger: 50px;
+        --dimenMenuBurgerLine: 8px;
+        --dimenMenuBurgerMargin: 10px;
 
         --dimenMainMargin: 30px;
         --dimenMainPadding: 70px;
