@@ -14,28 +14,32 @@ export class ServerConnection {
     }
 
     start(server, port) {
-        let wsock = new WebSocket("ws://" + server + ":" + port + "/user");
+        try {
+            let wsock = new WebSocket("ws://" + server + ":" + port + "/user");
 
-        wsock.addEventListener("open", () => {
-            console.log("Websocket: Connection open");
-            this._open();
-        });
+            wsock.addEventListener("open", () => {
+                console.log("Websocket: Connection open");
+                this._open();
+            });
 
-        wsock.addEventListener("message", (event) => {
-            console.log("Websocket: Message received", event);
-            this._message(event);
-        });
+            wsock.addEventListener("message", (event) => {
+                console.log("Websocket: Message received", event);
+                this._message(event);
+            });
 
-        wsock.addEventListener("error", (event) => {
-            console.error("Websocket: An error occured", event);
-            this._error(event);
-        });
+            wsock.addEventListener("error", (event) => {
+                console.error("Websocket: An error occured", event);
+                this._error(event);
+            });
 
-        wsock.addEventListener("close", (event) => {
-            console.log("Websocket: Connection closed", event);
-            this._close(event);
-        });
-        this._conn = wsock;
+            wsock.addEventListener("close", (event) => {
+                console.log("Websocket: Connection closed", event);
+                this._close(event);
+            });
+            this._conn = wsock;
+        } catch (e) {
+            this.close.emit(e);
+        }
     }
     
     addEventListener( name, func ) {
