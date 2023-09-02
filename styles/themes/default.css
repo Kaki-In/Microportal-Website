@@ -15,6 +15,7 @@
     --colorButton: var(--colorSecondary);
     --colorButtonBorder: var(--colorSecondary);
     --colorButtonHover: var(--colorSecondaryDark);
+    --colorButtonDisabled: var(--colorSecondaryDark);
 
     --colorHeaderBottomBar: var(--colorPrimaryDark);
     --colorHeaderTopBar: var(--colorPrimary);

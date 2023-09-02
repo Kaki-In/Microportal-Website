@@ -49,4 +49,9 @@ export class RequestsList {
         }
     }
 
+    registerRequestError() {
+        let request = this._waitingRequests.shift();
+        request.cancel();
+    }
+
 }

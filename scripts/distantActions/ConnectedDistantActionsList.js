@@ -13,6 +13,8 @@ export class ConnectedDistantActionsList {
                 let notification = platform.ui.notifications.createNotification("error");
                 notification.title = "Une erreur s'est produite lors de l'envoi d'une requête"
                 notification.text = args.message;
+
+                platform.context.requests.registerRequestError();
             },
             "requestProcessing": (platform, args) => {
                 let request = platform.context.requests.findRequestById(args.id);

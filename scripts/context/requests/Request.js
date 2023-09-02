@@ -11,6 +11,7 @@ export class Request {
 
         this._resultPromise = new Promise((resolve, reject) => {
             this._resultResolve = resolve;
+            this._resultReject = reject;
         });
 
         this._events = {
@@ -77,16 +78,22 @@ export class Request {
     }
 
     addEventListener( name, func ) {
+        let event;
         if (name === "processed") {
             event = this._processed;
         } else {
-            let event = this._events[ name ];
+            event = this._events[ name ];
         }
         if ( event === undefined ) {
-            throw new KeyError( "no such event" );
+            throw new ReferenceError( "no such event" );
         } else {
             this._events[ name ].connect( func );
         }
+    }
+
+    cancel() {
+        this._state = "canceled";
+        this._resultReject();
     }
 
 }

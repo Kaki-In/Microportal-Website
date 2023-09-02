@@ -32,8 +32,12 @@ export class WelcomePage extends Component{
             pin: 4,
             active: false
         });
-        await Promise.all([request1, request2, request3]);
+        try {
+            await Promise.all([request1, request2, request3]);
+        } catch {
+        }
         this._button.loading = false;
+        this._button.disable();
     }
 
 }

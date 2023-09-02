@@ -39,14 +39,14 @@
         --dimenLoadingSpanRadius: 7px;
 
         --dimenButtonBorder: 0px;
-        --dimenButtonBorderRadius: 5px;
+        --dimenButtonBorderRadius: 15px;
         --dimenButtonPadding: 30px;
         --dimenButtonTextSize: 40px;
 
         --dimenInputBorder: 3px;
-        --dimenInputPadding: 20px;
-        --dimenInputBorderRadius: 5px;
-        --dimenInputMargin: 10px;
+        --dimenInputPadding: 25px;
+        --dimenInputBorderRadius: 20px;
+        --dimenInputMargin: 15px;
         --dimenInputSize: 35px;
 
         --dimenInputLabelMarginTop: 10px;
