@@ -35,9 +35,9 @@ export class WelcomePage extends Component{
         try {
             await Promise.all([request1, request2, request3]);
         } catch {
+            this._button.disable();
         }
         this._button.loading = false;
-        this._button.disable();
     }
 
 }
