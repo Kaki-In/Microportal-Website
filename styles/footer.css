@@ -1,0 +1,28 @@
+footer {
+    display: flex;
+    background : var(--colorPrimary);
+    padding: var(--dimenFooterPadding);
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - var(--dimenFooterPadding) * 2);
+}
+
+footer ul {
+    margin-left: none;
+    display: flex;
+    flex-direction: column;
+    background : var(--colorPrimary);
+    padding: 20px;
+}
+
+footer ul a {
+    list-style-type: armenian;
+}
+
+footer ul h1 {
+    color: var(--colorText)
+}
+
+footer small {
+    font-size: var(--dimenFooterSmallFont)
+}

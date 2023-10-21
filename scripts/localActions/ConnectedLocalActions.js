@@ -5,6 +5,8 @@ export class ConnectedLocalActions {
         this._userFetch = {
         };
 
+        this._usersListResolve = null;
+
     }
 
     async fetchUser(name) {
@@ -28,6 +30,17 @@ export class ConnectedLocalActions {
         return await newreq.resultPromise;
     }
 
+    async getUsersList() {
+        let request = this._platform.serverConnection.createRequest("getUsersList", {});
+        await this._platform.serverConnection.send(request);
+
+        this._usersList = new Promise((resolve, reject) => {
+            this._usersListResolve = resolve;
+        })
+
+        return this._usersList;
+    }
+
     resolveUserFetch(state, result) {
         let name = result.name;
         if (this._userFetch[ name ]) {
@@ -38,5 +51,11 @@ export class ConnectedLocalActions {
             this._userFetch[ name ] = undefined;
         }
     } 
+
+    resolveUsersList(ulist) {
+        if (this._usersListResolve) {
+            this._usersListResolve(ulist);
+        }
+    }
 
 }

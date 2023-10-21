@@ -57,6 +57,18 @@
 
         --displayHeaderOpenMenuText: inline-block;
     
+        --dimenFooterSmallFont: 20px;
+        --dimenFooterPadding: 20px;
+ 
+        --dimenMenuTextIcon: 50px;
+
+        --dimenUserThumbnailWidth: 100%;
+        --dimenUserThumbnailPadding: 40px;
+        --dimenUserThumbnailRadius: 0px;
+        --dimenUserThumbnailImageRadius: 40px;
+        --dimenUserThumbnailSpace: 60px;
+        --dimenUserThumbnailMargin: 50px;
+
     }
 
 }

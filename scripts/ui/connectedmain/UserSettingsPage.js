@@ -1,5 +1,6 @@
 import { Component, appendChild } from "../../../components/Component.js";
 import { Button } from "../../../components/Button.js";
+import { Image } from "../../../components/Image.js";
 import { Menu } from "../../../components/Menu.js";
 
 export class UserPage extends Component {
@@ -9,7 +10,12 @@ export class UserPage extends Component {
 
         super(element);
 
+        let user = platform.context.world.users.getUserByName(platform.context.world.username);
+
         this._menu = element.children[ 0 ].component;
+        let div = this._menu.addIconText(user.name);
+        div.querySelector("img").classList.add("user-icon");
+        div.querySelector("img").component.base64 = user.icon.data;
         this._menu.addOption("Se déconnecter", () => {
             platform.context.shelve.username = undefined;
             platform.context.shelve.password = undefined;
@@ -17,25 +23,6 @@ export class UserPage extends Component {
         })
 
         platform.ui.title = "Paramètres de l'utilisateur";
-    }
-
-    async openPortal(platform) {
-        const robotName = "84:0d:8e:b0:67:e4";
-        this._button.loading = true;
-
-        let request1 = platform.localActions.sendRobotAction(robotName, "setPin", {
-            pin: 4,
-            active: true
-        });
-        let request2 = platform.localActions.sendRobotAction(robotName, "sleep", {
-            time: 0.05
-        });
-        let request3 = platform.localActions.sendRobotAction(robotName, "setPin", {
-            pin: 4,
-            active: false
-        });
-        await Promise.all([request1, request2, request3]);
-        this._button.loading = false;
     }
 
 }

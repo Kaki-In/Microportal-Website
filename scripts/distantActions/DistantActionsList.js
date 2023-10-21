@@ -5,9 +5,12 @@ export class DistantActionsList {
             "connectionFailed": (platform, args) => {
                 platform.localActions.resolveConnection("failed", args);
             },
-            "connectionSuccess": (platform, args) => {
-                platform.localActions.resolveConnection("success", args);
-                platform.context.world.setUser(args.user, "");
+            "connectionSuccess": async (platform, args) => {
+                let lact = platform.localActions;
+                platform.onConnected();
+                await platform.localActions.fetchUser(args.user);
+                platform.context.world.username = args.user;
+                lact.resolveConnection("success", args);
             },
             "accountCreationFailed": (platform, args) => {
                 platform.localActions.resolveCreation("failed", args);

@@ -54,8 +54,8 @@ button:not(.text) * {
     vertical-align: middle;
 }
 
-button img.active {
-    margin-right: var(--dimenButtonPadding);
+button img[src] {
+    margin-right: calc(var(--dimenButtonPadding) / 2);
 }
 
 button.text {
@@ -168,6 +168,21 @@ div.list p {
     background: var(--colorListTextBackground);
 }
 
+div.iconText {
+    display: flex;
+    flex: row;
+    flex-wrap: none;
+    height: var(--dimenMenuTextIcon);
+    align-items: center;
+    margin: none;
+}
+
+div.iconText img {
+    display: inline-block;
+    height: 100%;
+    margin-right: var(--dimenListPadding);
+}
+
 input {
     display: block;
     position: relative;
@@ -198,3 +213,73 @@ label.input-label {
     margin-top: var(--dimenInputLabelMarginTop);
     font-size: var(--dimenLabelSize);
 }
+
+img.user-icon {
+    border-radius: 50%;
+}
+
+div.list-users {
+    display: flex!important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: var(--dimenMainRadius);
+    width: 100%;
+}
+
+div.user-thumbnail {
+    display: inline-block;
+    position: relative;
+    background: var(--colorUserThumbnailBackground);
+    border-radius: var(--dimenUserThumbnailRadius);
+    margin-right: var(--dimenMainMargin);
+    overflow: hidden;
+}
+
+div.list-users div.user-thumbnail {
+    width: var(--dimenUserThumbnailWidth);
+    margin: var(--dimenUserThumbnailMargin);
+}
+
+div.user-thumbnail div {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--dimenUserThumbnailPadding);
+    padding-bottom: 0px;
+    z-index: var(--zIndexThumbnailContent);
+    cursor: pointer;
+}
+
+div.user-thumbnail span {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: calc( 2 * var(--dimenUserThumbnailPadding) + var(--dimenUserThumbnailRadius) + var(--dimenParagraphSize));
+    background-color: var(--colorUserThumbnailBackground);
+    background: linear-gradient(0deg, var(--colorUserThumbnailHoverBackground) 0%, #0000 100%);
+    transition: 0.5s all ease-in-out;
+}
+
+div.user-thumbnail:hover span {
+    height: 100%;
+    background-color: var(--colorUserThumbnailHoverBackground);
+    transition: 0.5s all ease-in-out;
+}
+
+div.user-thumbnail img {
+    display: inline-block;
+    border-radius: var(--dimenUserThumbnailImageRadius);
+}
+
+div.user-thumbnail p {
+    margin-top: var(--dimenThumbnailSpace);
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: center;
+    padding: var(--dimenUserThumbnailPadding);
+    border-bottom-left-radius: var(--dimenUserThumbnailRadius);
+    border-bottom-right-radius: var(--dimenUserThumbnailRadius);
+}
+

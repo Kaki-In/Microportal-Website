@@ -1,23 +1,29 @@
 import { EventHandler } from "../../../events/EventHandler.js";
 import { User } from "./user/User.js";
+import { UsersList } from "./UsersList.js";
 
 export class World {
 
     constructor() {
         this._user = null;
+        this._users = new UsersList();
 
         this._events = {
             userChanged : new EventHandler()
         }
     }
 
-    get user() {
+    get username() {
         return this._user;
     }
 
-    setUser(name, icon) {
-        this._user = new User(name, icon);
-        this._events.userChanged.emit(this._user);
+    get users() {
+        return this._users;
+    }
+
+    set username(name) {
+        this._user = name;
+        this._events.userChanged.emit(name);
     }
 
     addEventListener(name, func) {

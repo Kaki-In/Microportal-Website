@@ -1,17 +1,9 @@
 @media (prefers-color-scheme: dark) {
     :root {
-        --colorPrimary: #12b7ff;
-        --colorPrimaryLight: #95ccff;
-        --colorPrimaryDark: #095880;
-    
-        --colorSecondary: #00BBC1;
-        --colorSecondaryLight: #80DDDA;
-        --colorSecondaryDark: #00676A;
-    
         --colorBodyBackground: black;
         --colorMainBackground: black;
         --colorText: white;
-        --colorTitle: var(--colorPrimaryLight);
+        --colorTitle: var(--colorSecondaryLight);
         --colorLoadingBackground: #fff8;
         --colorLoadingSpan: var(--colorSecondaryDark);
     
@@ -41,6 +33,9 @@
         --colorListButtonBackground: #4c4c4c;
         --colorListTextBackground: black;
         --colorListBorder: var(--colorPrimaryLight);
+
+        --colorUserThumbnailBackground: var(--colorSecondary);
+        --colorUserThumbnailHoverBackground: var(--colorSecondaryLight);
     }
 
 }

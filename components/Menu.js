@@ -1,5 +1,6 @@
 import { Component, appendChild, removeChild } from "./Component.js";
 import { Button } from "./Button.js";
+import { Image } from "./Image.js";
 
 export class Menu extends Component {
 
@@ -21,6 +22,20 @@ export class Menu extends Component {
         paragraph.textContent = text;
         this.element.appendChild(paragraph);
         return paragraph;
+    }
+
+    addIconText(text) {
+        let div = document.createElement("div");
+        div.classList.add("iconText");
+        appendChild(div, new Image());
+
+        let paragraph = document.createElement("p");
+        paragraph.textContent = text;
+        div.appendChild(paragraph);
+
+        this.element.appendChild(div);
+
+        return div
     }
 
     addSpace() {

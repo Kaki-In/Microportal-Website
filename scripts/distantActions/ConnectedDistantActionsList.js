@@ -3,6 +3,7 @@ export class ConnectedDistantActionsList {
     constructor() {
         this._actions = {
             "updateUserInformations": (platform, args) => {
+                platform.context.world.users.updateUser(args.name, args.icon, args.last_connection);
                 platform.localActions.resolveUserFetch("success", args);
             },
             "robotActionSent": (platform, args) => {
@@ -24,6 +25,15 @@ export class ConnectedDistantActionsList {
                 let request = platform.context.requests.findRequestById(args.id);
                 request.result = args.result;
             },
+            "updateUsersList": async (platform, args) => {
+                platform.localActions.resolveUsersList(args.users);
+                let users = []
+                for (let user of args.users) {
+                    let result = await platform.localActions.fetchUser(user);
+                    users.push(result.result);
+                }
+                platform.context.world.users.updateUsers(users);
+            },
         }
     }
 
@@ -38,5 +48,7 @@ export class ConnectedDistantActionsList {
             action(platform, args);
         }
     }
+
+
 
 }

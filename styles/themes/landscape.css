@@ -44,12 +44,25 @@
         --dimenInputPadding: 10px;
         --dimenInputBorderRadius: 5px;
         --dimenInputMargin: 10px;
+        --dimenLabelSize: 14px;
 
         --dimenInputLabelMarginTop: 10px;
 
         --dimenParagraphSize: 16px;
         --dimenInputSize: 16px;
-        --dimenLabelSize: 14px;
+        --dimenTitleSize: 25px;
+
+        --dimenFooterSmallFont: 12px;
+        --dimenFooterPadding: 20px;
+
+        --dimenMenuTextIcon: 20px;
+        
+        --dimenUserThumbnailWidth: auto;
+        --dimenUserThumbnailPadding: 20px;
+        --dimenUserThumbnailRadius: 15px;
+        --dimenUserThumbnailImageRadius: 20px;
+        --dimenUserThumbnailSpace: 30px;
+        --dimenUserThumbnailMargin: 20px;
     }
                         
 }

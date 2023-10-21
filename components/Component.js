@@ -38,7 +38,7 @@ export class Component {
 export function appendChild(parent, child) {
     parent.appendChild(child.element);
     child.parent = parent;
-    return child.element;
+    return child;
 }
 
 export function removeChild(parent, child) {
@@ -52,5 +52,5 @@ export function removeChild(parent, child) {
 export function insertBefore(parent, child, element) {
     parent.insertBefore(child.element, element);
     child.parent = parent;
-    return child.element;
+    return child;
 }

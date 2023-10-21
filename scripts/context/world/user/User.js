@@ -28,7 +28,7 @@ export class User {
     addEventListener(name, func) {
         let event = this._events[ name ];
         if ( event === undefined ) {
-            throw new KeyError( "no such error" );
+            throw new ReferenceError( "no such event" );
         } else {
             event.connect( func );
         }

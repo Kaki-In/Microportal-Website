@@ -7,6 +7,7 @@ export class WelcomePage extends Component{
         let element = createWelcome();
 
         super(element);
+        let user = platform.context.world.users.getUserByName(platform.context.world.username);
 
         let button = element.children[ 3 ].component;
         button.addEventListener("click", () => {
@@ -14,7 +15,7 @@ export class WelcomePage extends Component{
         })
         this._button = button;
 
-        platform.ui.title = platform.context.world.user.name;
+        platform.ui.title = user.name;
     }
 
     async openPortal(platform) {

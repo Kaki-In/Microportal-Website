@@ -1,11 +1,11 @@
 :root {
-    --colorPrimary: #12b7ff;
-    --colorPrimaryLight: #95ccff;
-    --colorPrimaryDark: #095880;
+    --colorPrimary: #ffa836;
+    --colorPrimaryLight: #ffd095;
+    --colorPrimaryDark: #d17300;
 
-    --colorSecondary: #00BBC1;
-    --colorSecondaryLight: #80DDDA;
-    --colorSecondaryDark: #00676A;
+    --colorSecondary: #a940ff;
+    --colorSecondaryLight: #d475ff;
+    --colorSecondaryDark: #8235cc;
 
     --colorBodyBackground: white;
     --colorMainBackground: white;
@@ -39,8 +39,11 @@
     --colorListButtonBackground: #ddd;
     --colorListTextBackground: white;
     --colorText: black;
-    --colorTitle: var(--colorPrimaryDark);
+    --colorTitle: var(--colorSecondaryDark);
     --colorListBorder: var(--colorPrimaryLight);
+
+    --colorUserThumbnailBackground: var(--colorSecondary);
+    --colorUserThumbnailHoverBackground: var(--colorSecondaryLight);
 
     --stringFontName: 'Ubuntu';
 
@@ -51,6 +54,8 @@
     --zIndexHeaderImage: 1;
 
     --zIndexNotificationsDiv: 15;
+
+    --zIndexThumbnailContent: 1;
 
     --displayHeaderOpenMenuText: none;
 

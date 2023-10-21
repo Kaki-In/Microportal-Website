@@ -1,6 +1,7 @@
 import { appendChild } from "./Component.js";
 import { Adapter } from "./Adapter.js";
 import { Loader } from "./Loader.js";
+import { Image } from "./Image.js";
 
 export class Button extends Adapter {
 
@@ -12,20 +13,11 @@ export class Button extends Adapter {
 
         this._loading = false;
         this._className = "";
-        this._icon = null;
-    }
-
-    set icon(src) {
-        this.element.children[ 0 ].src = src;
-        if (src) {
-            this.element.children[ 0 ].className = "active";
-        } else {
-            this.element.children[ 0 ].className = "";
-        }
+        this._icon = button.querySelector("img").component;
     }
 
     get icon() {
-        return this.element.children[ 0 ].src;
+        return this._icon;
     }
 
     set text(text) {
@@ -70,7 +62,7 @@ export class Button extends Adapter {
 function createButton(text, listener) {
     let button = document.createElement('button');
     button.addEventListener("click", listener);
-    button.appendChild(document.createElement("img"));
+    appendChild(button, new Image());
     button.appendChild(document.createElement("text")).textContent = text;
     return button;
 }

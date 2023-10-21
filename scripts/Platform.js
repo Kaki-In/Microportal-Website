@@ -88,19 +88,14 @@ export class Platform {
 
         this._ui.loadPlatform(this);
 
-        this._context.world.addEventListener("userChanged", async (user) => {
-            this._distantActions = new ConnectedDistantActionsList();
-            this._localActions = new ConnectedLocalActions(this);
-            let informations = await this._localActions.fetchUser(user.name);
-            if (informations.state === "success") {
-                this.context.world.user.icon = informations.result.icon;
-            } else {
-                console.error("fetch failed");
-            }
-        })
         this._conn.addEventListener("message", (message) => {
             this._distantActions.execute(platform, message);
         })
+    }
+
+    onConnected() {
+        this._distantActions = new ConnectedDistantActionsList();
+        this._localActions = new ConnectedLocalActions(this);
     }
 
 }
