@@ -21,7 +21,7 @@
         --colorInputDisabledBorder: var(--colorPrimaryLight);
         --colorInputBorderFocus: var(--colorPrimaryDark);
     
-        --colorNotificationBackground: var(--colorSecondaryLight);
+        --colorNotificationBackground: var(--colorLoadingBackground);
         --colorNotificationBorder: var(--colorSecondaryLight);
         --colorNoficationCloseButtonCross: black;
     
@@ -35,7 +35,7 @@
         --colorListBorder: var(--colorPrimaryLight);
 
         --colorUserThumbnailBackground: var(--colorSecondary);
-        --colorUserThumbnailHoverBackground: var(--colorSecondaryLight);
+        --colorUserThumbnailHoverBackground: var(--colorSecondaryDark);
     }
 
 }

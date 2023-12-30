@@ -6,14 +6,16 @@ import { Image } from "./Image.js";
 export class Button extends Adapter {
 
     constructor(text) {
-        super();
         let button = createButton(text);
+        super();
+
         this._button = button;
         this.element = button;
-
         this._loading = false;
         this._className = "";
         this._icon = button.querySelector("img").component;
+
+        this._loader = button.querySelector("div.loading");
     }
 
     get icon() {
@@ -31,18 +33,15 @@ export class Button extends Adapter {
     set loading(value) {
         this._loading = value;
         if (this._loading) {
-            this.content = new Loader();
-            this.element.classList.add("centered");
+            this._loader.classList.remove("hidden");
         } else {
-            this.element = this._button;
+            this._loader.classList.add("hidden");
         }
     }    
     
     set className(name) {
         this._className = name;
-        if (!this.loading) {
-            this.element.className = name;
-        }
+        this.element.className = name;
     }
 
     addEventListener(name, func) {
@@ -62,6 +61,7 @@ export class Button extends Adapter {
 function createButton(text, listener) {
     let button = document.createElement('button');
     button.addEventListener("click", listener);
+    appendChild(button, new Loader()).element.classList.add("hidden");
     appendChild(button, new Image());
     button.appendChild(document.createElement("text")).textContent = text;
     return button;

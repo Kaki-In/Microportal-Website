@@ -20,32 +20,83 @@ export class ScriptsList {
 
         for (let script of this._scripts) {
             if (!scripts[ script.id ]) {
-                let deletedScript = script;
-                delete this._users[ user.name ];
-                this._events.remove.emit( deletedUser );
+                let deletedScript = this._scripts[ scripts.id ];
+                delete this._scripts[ script.id ];
+                this._events.remove.emit( deletedScript );
             }
         }
     }
 
-    get userNames () {
-        return Object.keys(this._users);
+    get scriptsIds () {
+        return Object.keys(this._scripts);
     }
 
-    updateUser(name, usericon, last_connection) {
-        let lastUser = this._users[ name ];
-        if (lastUser) {
-            lastUser.icon = usericon;
-            this._events.update.emit(lastUser);
+    updateScript(id, action, args, creationTime, modificationTime, name, published, robot, user) {
+        let lastScript = this._script[ id ];
+        if (lastScript) {
+            lastScript.action = action;
+            lastScript.args = args;
+            lastScript.creationTime = creationTime;
+            lastScript.modificationTime = modificationTime;
+            lastScript.name = name;
+            lastScript.published = published;
+            lastScript.robot = robot;
+            lastScript.user = user;
+            this._events.update.emit(lastScript);
         } else {
-            let newUser = new User(name, usericon);
-            this._users[ name ] = newUser;
-            this._events.add.emit(newUser);
+            let newScript = new Script(id);
+            newScript.action = action;
+            newScript.args = args;
+            newScript.creationTime = creationTime;
+            newScript.modificationTime = modificationTime;
+            newScript.name = name;
+            newScript.published = published;
+            newScript.robot = robot;
+            newScript.user = user;
+            this._scripts[ name ] = newScript;
+            this._events.add.emit(newScript);
         }
     }
 
-    getUserByName(name) {
-        return this._users [ name ];
+    getScriptById(name) {
+        return this._scripts [ name ];
     }
+
+    getScriptsByAuthor(user) {
+        scripts = [];
+        for (let script of this._scripts)
+        {
+            if (script.user === user)
+            {
+                scripts.push(script);
+            };
+        };
+        return scripts;
+    };
+
+    getScriptsByRobot(robot) {
+        scripts = [];
+        for (let script of this._scripts)
+        {
+            if (script.robot === robot)
+            {
+                scripts.push(script);
+            };
+        };
+        return scripts;
+    };
+
+    getPublishedScripts() {
+        scripts = [];
+        for (let script of this._scripts)
+        {
+            if (script.published)
+            {
+                scripts.push(script);
+            };
+        };
+        return scripts;
+    };
 
     addEventListener(name, func) {
         let event = this._events[ name ];

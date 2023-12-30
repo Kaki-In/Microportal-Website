@@ -1,30 +1,30 @@
 #root {
     position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     left: 0px;
     right: 0px;
     top: var(--dimenHeaderHeight);
     bottom: 0px;
+    width: 100%;
+    height: calc( 100% - var(--dimenHeaderHeight) );
     overflow: auto;
+}
+
+div#aroundMain {
+    position: relative;
+    display: table;
+    flex-grow: 1;
+    left: 0px;
+    right: 0px;
+    justify-content: center;
 }
 
 main {
     position: relative;
-    display: flex;
-    left: 0px;
-    right: 0px;
-    height: auto;
-    justify-content: center;
-}
-
-main > * {
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin: var(--dimenMainMargin);
-    padding: var(--dimenMainPadding);
-    border-radius: var(--dimenMainRadius);
-    background: var(--colorMainBackground);
+    display: table-cell;
+    vertical-align: middle;
 }
 
 p {
@@ -87,20 +87,30 @@ button.text:not([disabled]):hover {
     color : var(--colorButtonHover);
 }
 
+button div.loading {
+    display: block;
+    width: auto;
+    height: auto;
+    margin-left: calc(var(--dimenLoadingSize) / 3);
+    margin-right: calc(var(--dimenLoadingSize) * 2/3);
+}
+
 main div.main-div {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin: 0px;
+    position: relative;
     padding: 0px;
     border-radius: 0px;
-    margin-top: var(--dimenMainCentralDivMargin);
-    margin-bottom: var(--dimenMainCentralDivMargin);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--dimenMainMargin);
+    margin-bottom: var(--dimenMainMargin);
 }
 
-main div.main-div > div {
+main div.main-div > div:not(.central-div) {
     margin: auto;
-    max-width: var(--dimenMainMaxWidth);
+    position: relative;
+    padding: var(--dimenMainPadding);
 }
 
 main div.central-div {
@@ -110,20 +120,20 @@ main div.central-div {
     max-width: 100%!important;
     border-radius: 0px;
     background: var(--colorPrimary);
+    padding: 0px;
     padding-top: var(--dimenMainPadding);
     padding-bottom: var(--dimenMainPadding);
     margin: 0px;
     margin-top: var(--dimenMainCentralDivMargin);
     margin-bottom: var(--dimenMainCentralDivMargin);
+    justify-content: space-around;
 }
 
-main div.central-div > div {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: var(--dimenMainPadding);
-    border-radius: var(--dimenMainRadius);
+main div.central-div > div{
+    margin: auto;
     background: var(--colorMainBackground);
+    border-radius: var(--dimenMainRadius);
+    padding: var(--dimenMainPadding);
 }
 
 h1 {
@@ -215,7 +225,7 @@ label.input-label {
 }
 
 img.user-icon {
-    border-radius: 50%;
+    border-radius: var(--percentageUserIcon);
 }
 
 div.list-users {

@@ -13,6 +13,10 @@ div.loading.centered {
     margin: auto;
 }
 
+div.loading.hidden {
+    display: none;
+}
+
 
 @keyframes turnload {
     0% {

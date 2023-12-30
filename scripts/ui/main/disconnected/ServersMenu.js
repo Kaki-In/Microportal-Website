@@ -23,7 +23,7 @@ export class ServersMenu extends Menu {
                 platform.context.shelve.knownServers = knownServers;
                 adapter.update(platform);
             });
-        }
+        };
         platform.ui.title = "Connexion au serveur";
     }
 

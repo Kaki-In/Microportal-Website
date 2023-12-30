@@ -1,11 +1,11 @@
 :root {
-    --colorPrimary: #ffa836;
-    --colorPrimaryLight: #ffd095;
-    --colorPrimaryDark: #d17300;
+    --colorPrimary: #FF0610;
+    --colorPrimaryLight: #FF4B55;
+    --colorPrimaryDark: #C5000A;
 
-    --colorSecondary: #a940ff;
-    --colorSecondaryLight: #d475ff;
-    --colorSecondaryDark: #8235cc;
+    --colorSecondary: #FF2412;
+    --colorSecondaryLight: #FF6351;
+    --colorSecondaryDark: #C80C00;
 
     --colorBodyBackground: white;
     --colorMainBackground: white;
@@ -26,10 +26,10 @@
     --colorInputDisabledBorder: var(--colorPrimaryLight);
     --colorInputBorderFocus: var(--colorPrimaryDark);
 
-    --colorNotificationBackground: var(--colorSecondaryLight);
+    --colorNotificationBackground: var(--colorLoadingBackground);
     --colorNotificationBorder: var(--colorSecondaryDark);
     --colorNoficationCloseButtonCross: white;
-    --colorNotificationText: black;
+    --colorNotificationText: white;
 
     --colorNotificationError: red;
     --colorNotificationSuccess: #12b723;
@@ -71,5 +71,7 @@
     --timingFunctionNotificationAppearition: ease-out;
     --timingFunctionHeaderClose: ease-out;
     --timingFunctionHeaderOpen: ease-in;
+
+    --percentageUserIcon: 33%;
 }
 

@@ -8,11 +8,12 @@ footer {
 }
 
 footer ul {
-    margin-left: none;
+    margin: 0px;
     display: flex;
     flex-direction: column;
     background : var(--colorPrimary);
     padding: 20px;
+    padding-top: 0px;
 }
 
 footer ul a {
@@ -20,7 +21,9 @@ footer ul a {
 }
 
 footer ul h1 {
-    color: var(--colorText)
+    color: var(--colorText);
+    margin: 0px;
+    padding: 0px;
 }
 
 footer small {

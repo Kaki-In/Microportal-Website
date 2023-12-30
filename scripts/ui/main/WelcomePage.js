@@ -19,10 +19,12 @@ export class WelcomePage extends Component{
 
 function createWelcome() {
     let div = document.createElement("div");
+    div.classList.add("main-div");
 
-    div.appendChild(document.createElement("h1")).textContent = "Bienvenue dans le projet Microportal!";
+    let divContent = div.appendChild(document.createElement("div"));
 
-    div.appendChild(document.createElement("p")).textContent = "Le site est actuellement en cours de création";
+    divContent.appendChild(document.createElement("h1")).textContent = "Bienvenue dans le projet Microportal!";
+    divContent.appendChild(document.createElement("p")).textContent = "Le site est actuellement en cours de création";
 
     return div
 }

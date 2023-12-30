@@ -23,7 +23,7 @@ export class ServerConnection {
             });
 
             wsock.addEventListener("message", (event) => {
-                console.log("Websocket: Message received", event);
+                console.log("Websocket: Message received", JSON.parse(event.data));
                 this._message(event);
             });
 

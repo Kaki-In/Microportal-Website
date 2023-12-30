@@ -18,6 +18,11 @@ section#notifications > div {
     padding: var(--dimenNotificationPadding);
     margin-top: var(--dimenNotificationSpace);
     border: var(--dimenNotificationBorder) solid var(--colorNotificationBorder) ;
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    -o-backdrop-filter: blur(5px);
+    -ms-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     animation-name: openfade;
     animation-duration: var(--timeNotificationAppearition);
     animation-timing-function: var(--timingFunctionNotificationAppearition);
@@ -66,9 +71,9 @@ section#notifications > div.warning:before {
 section#notifications > div button.close-notification-button {
     position: absolute;
     right: var(--dimenNotificationPadding);
-    height: 10px;
-    width: 10px;
-    scale: 75%;
+    height: var(--dimenNotificationButtonSize);
+    width: var(--dimenNotificationButtonSize);
+    scale: var(--scaleNotificationCloseButton);
     transform-origin: right top;
 }
 
@@ -100,6 +105,7 @@ section#notifications > div h3 {
     margin-right: calc( ( var(--dimenButtonPadding) + var(--dimenButtonBorder) ) * 2 );
     margin-top: calc( var(--dimenButtonPadding) / 3 );
     font-size: var(--dimenNotificationTitleSize);
+    color: var(--colorNotificationText);
 }
 
 section#notifications > div p {

@@ -58,7 +58,7 @@ function createConnection() {
     form.addInput("Nom d'utilisateur:", "text", true);
     form.addInput("Mot de passe:", "password", true);
 
-    form.button.element.textContent = "Se connecter";
+    form.button.element.querySelector("text").textContent = "Se connecter";
 
     appendChild(centraldiv, form);
 

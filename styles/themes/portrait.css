@@ -24,7 +24,9 @@
         --dimenNotificationPadding: 30px;
         --dimenNotificationSpace: 15px;
         --dimenNotificationBorder: 2px;
-        --dimenNotificationCloseButtonCross: 17px;
+        --dimenNotificationCloseButtonCross: 10px;
+        --dimenNotificationButtonSize: 16px;
+        --scaleNotificationCloseButton: 50%;
         --dimenNotificationTitleSize: 40px;
         --dimenNotificationTextSize: 30px;
         --dimenNotificationStatusBar: 10px;

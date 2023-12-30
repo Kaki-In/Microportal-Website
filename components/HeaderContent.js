@@ -57,7 +57,7 @@ function createHeaderContent() {
 
     let button = new Button("MENU");
     appendChild(list, button);
-    button.element.children[ 0 ].replaceWith(new HeaderBurger().element);
+    button.element.children[ 1 ].replaceWith(new HeaderBurger().element);
 
     let logo = document.createElement("img");
     list.appendChild(logo);

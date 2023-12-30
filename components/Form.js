@@ -42,6 +42,12 @@ export class Form extends Component {
     set loading(loading) {
         this._loading = loading;
         this.button.loading = loading;
+        if (loading) 
+        {
+            this.button.disable();
+        } else {
+            this.button.enable();
+        };
         for (let input of this._inputs) {
             input.disabled = loading;
         }

@@ -16,11 +16,16 @@ export class UserPage extends Component {
         let div = this._menu.addIconText(user.name);
         div.querySelector("img").classList.add("user-icon");
         div.querySelector("img").component.base64 = user.icon.data;
+
+        this._menu.addOption("Mon profil", () => {
+        });
+        this._menu.addOption("Mes scripts", () => {
+        });
         this._menu.addOption("Se déconnecter", () => {
             platform.context.shelve.username = undefined;
             platform.context.shelve.password = undefined;
             platform.serverConnection.close();
-        })
+        });
 
         platform.ui.title = "Paramètres de l'utilisateur";
     }
