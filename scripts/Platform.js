@@ -90,12 +90,13 @@ export class Platform {
 
         this._conn.addEventListener("message", (message) => {
             this._distantActions.execute(platform, message);
-        })
+        });
     }
 
     onConnected() {
         this._distantActions = new ConnectedDistantActionsList();
         this._localActions = new ConnectedLocalActions(this);
+
         this._localActions.getUsersList();
         this._localActions.getRobotsList();
     }

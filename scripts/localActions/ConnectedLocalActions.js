@@ -8,24 +8,36 @@ export class ConnectedLocalActions {
         this._robotFetch = {
         };
 
-        this._usersListResolve = null;
-        this._robotsListResolve = null;
+        this._usersListResolve = [];
+        this._robotsListResolve = [];
 
     }
 
     async fetchUser(name) {
         let fetchPromise = new Promise(async (resolve) => {
-            this._userFetch[ name ] = resolve;
+            let fname = this._userFetch[ name ];
+            if (fname === undefined)
+            {
+                this._userFetch[ name ] = [resolve];
+            } else {
+                this._userFetch[ name ].push(resolve);
+            };
             let request = this._platform.serverConnection.createRequest("getUserInformations", {"name": name});
             await this._platform.serverConnection.send(request);
         });
 
         return await fetchPromise;
-    }
+    };
 
     async fetchRobot(mac) {
         let fetchPromise = new Promise(async (resolve) => {
-            this._robotFetch[ mac ] = resolve;
+            let frobot = this._robotFetch[ mac ]
+            if (frobot === undefined)
+            {
+                this._robotFetch[ mac ] = [resolve];
+            } else {
+                this._robotFetch[ mac ].push(resolve);
+            };
             let request = this._platform.serverConnection.createRequest("getRobotInformations", {"mac": mac});
             await this._platform.serverConnection.send(request);
         });
@@ -49,7 +61,7 @@ export class ConnectedLocalActions {
         await this._platform.serverConnection.send(request);
 
         this._usersList = new Promise((resolve, reject) => {
-            this._usersListResolve = resolve;
+            this._usersListResolve.push(resolve);
         });
 
         return await this._usersList;
@@ -60,7 +72,7 @@ export class ConnectedLocalActions {
         await this._platform.serverConnection.send(request);
 
         this._robotsList = new Promise((resolve, reject) => {
-            this._robotsListResolve = resolve;
+            this._robotsListResolve.push(resolve);
         });
 
         return await this._robotsList;
@@ -68,36 +80,26 @@ export class ConnectedLocalActions {
 
     resolveUserFetch(state, result) {
         let name = result.name;
-        if (this._userFetch[ name ]) {
-            this._userFetch[ name ] ({
-                state: state,
-                result: result
-            });
-            this._userFetch[ name ] = undefined;
-        }
+        this._userFetch[ name ].pop() ({
+            state: state,
+            result: result
+        });
     } 
 
     resolveRobotFetch(state, result) {
         let mac = result.mac;
-        if (this._robotFetch[ mac ]) {
-            this._robotFetch[ mac ] ({
-                state: state,
-                result: result
-            });
-            this._robotFetch[ mac ] = undefined;
-        }
+        this._robotFetch[ mac ].pop() ({
+            state: state,
+            result: result
+        });
     } 
 
     resolveUsersList(ulist) {
-        if (this._usersListResolve) {
-            this._usersListResolve(ulist);
-        }
+        this._usersListResolve.pop()(ulist);
     }
 
     resolveRobotsList(rlist) {
-        if (this._robotsListResolve) {
-            this._robotsListResolve(rlist);
-        }
+        this._robotsListResolve.pop()(rlist);
     }
 
 }
