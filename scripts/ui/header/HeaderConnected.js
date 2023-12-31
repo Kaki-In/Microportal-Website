@@ -20,7 +20,9 @@ export class HeaderConnected  extends HeaderContent {
         this.addButton("Communauté").addEventListener("click", () => {
             platform.ui.main.openCommunityPage(platform);
         });
-        this.addButton("Robots enregistrés");
+        this.addButton("Robots enregistrés").addEventListener('click', () => {
+            platform.ui.main.openRobotsPage(platform);            
+        });
         this.addButton("État des pins");
         this.addButton("Mode manuel");
         this.addSpace();

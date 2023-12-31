@@ -6,7 +6,7 @@ export class Robot {
         this._mac = mac;
         this._name = name;
         this._type = type;
-        this._lastConn = last_connection;
+        this._lastConn = new Date(last_connection);
 
         this._events = {
             nameChanged: new EventHandler(),
@@ -42,7 +42,7 @@ export class Robot {
     }
 
     set last_connection(last_connection) {
-        this._lastConn = last_connection;
+        this._lastConn = new Date(last_connection);
         this._events.lastConnectionChanged.emit(this._lastConn);
     }
 

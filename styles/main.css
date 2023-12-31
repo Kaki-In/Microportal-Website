@@ -293,3 +293,43 @@ div.user-thumbnail p {
     border-bottom-right-radius: var(--dimenUserThumbnailRadius);
 }
 
+tr.robot-thumbnail img {
+    height: var(--dimenRobotThumbnailHeight);
+    width: auto;
+}
+
+div.list-robots {
+    display: block;
+    padding: var(--dimenTablePadding);
+    background: var(--colorTableTitleBackground);
+    border-radius: var(--dimenMainRadius);
+}
+
+div.list-robots tr:not(thead tr) {
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    color: var(--colorTableTitle);
+    width: 100%;
+}
+
+table tr:hover:not(thead tr) {
+    background: var(--colorTableRowHover);
+    transition: var(--timeButtonHoverInTransition) all ease-in;
+}
+
+table tr {
+    transition: var(--timeButtonHoverOutTransition) all ease-out;
+    border-radius: var(--dimenTableRowRadius);
+}
+
+table th, table td {
+    padding: var(--dimenTableSpacing) var(--dimenTablePadding);
+}
+
+table td:not(:nth-child(1)), table th:not(:nth-child(1)) {
+    border-left: var(--dimenTableLines) solid var(--colorTableLines);
+}
+

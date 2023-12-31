@@ -6,6 +6,10 @@ export class ConnectedDistantActionsList {
                 platform.context.world.users.updateUser(args.name, args.icon, args.last_connection);
                 platform.localActions.resolveUserFetch("success", args);
             },
+            "updateRobotInformations": (platform, args) => {
+                platform.context.world.robots.updateRobot(args.mac, args.name, args.type, args.last_connection);
+                platform.localActions.resolveRobotFetch("success", args);
+            },
             "robotActionSent": (platform, args) => {
                 let id = args.request;
                 platform.context.requests.registerRequestId(id);
@@ -27,12 +31,21 @@ export class ConnectedDistantActionsList {
             },
             "updateUsersList": async (platform, args) => {
                 platform.localActions.resolveUsersList(args.users);
-                let users = []
+                let users = [];
                 for (let user of args.users) {
                     let result = await platform.localActions.fetchUser(user);
                     users.push(result.result);
                 }
                 platform.context.world.users.updateUsers(users);
+            },
+            "updateRobotsList": async (platform, args) => {
+                platform.localActions.resolveRobotsList(args.robots);
+                let robots = [];
+                for (let robot of args.robots) {
+                    let result = await platform.localActions.fetchRobot(robot);
+                    robots.push(result.result);
+                }
+                platform.context.world.robots.updateRobots(robots);
             },
         }
     }

@@ -6,6 +6,7 @@ import { Adapter } from "../../../components/Adapter.js";
 import { WelcomePage } from "./WelcomePage.js";
 import { UserPage } from "./UserSettingsPage.js";
 import { CommunityPage } from "./CommunityPage.js";
+import { RobotsPage } from "./RobotsPage.js";
 
 export class ConnectedMainUI extends MainComponent {
     
@@ -33,6 +34,11 @@ export class ConnectedMainUI extends MainComponent {
     openCommunityPage(platform) {
         this._page = "community";
         this.adapter.content = new CommunityPage(platform);
+    }
+
+    openRobotsPage(platform) {
+        this._page = "robots";
+        this.adapter.content = new RobotsPage(platform);
     }
 
 }

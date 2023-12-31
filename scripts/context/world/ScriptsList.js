@@ -18,13 +18,21 @@ export class ScriptsList {
             this.updateScript(script);
         }
 
-        for (let script of this._scripts) {
-            if (!scripts[ script.id ]) {
-                let deletedScript = this._scripts[ scripts.id ];
-                delete this._scripts[ script.id ];
+        for (let oldscript of Object.keys(this._robots)) {
+            let scriptFound = false;
+            for (let script of scripts)
+            {
+                if (script.id === oldscript)
+                {
+                    scriptFound = true;
+                }
+            };
+            if (!scriptFound) {
+                let deletedScript = this._scripts[ oldscript];
+                delete this._scripts[ oldscript ];
                 this._events.remove.emit( deletedScript );
-            }
-        }
+            };
+        };
     }
 
     get scriptsIds () {

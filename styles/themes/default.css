@@ -45,6 +45,11 @@
     --colorUserThumbnailBackground: var(--colorSecondary);
     --colorUserThumbnailHoverBackground: var(--colorSecondaryLight);
 
+    --colorTableRowHover: var(--colorSecondaryLight);
+    --colorTableTitle: var(--colorMainBackground);
+    --colorTableTitleBackground: var(--colorSecondary);
+    --colorTableLines: var(--colorSecondaryLight);
+
     --stringFontName: 'Ubuntu';
 
     --directionHeaderContent: row;

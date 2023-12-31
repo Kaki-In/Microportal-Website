@@ -18,16 +18,24 @@ export class RobotsList {
             this.updateRobot(robot.mac, robot.name, robot.type, robot.last_connection);
         };
 
-        for (let robot of Object.keys(this._robots)) {
-            if (!robots[ robot.mac ]) {
-                let deletedRobot = this._robots[ robot.mac ];
-                delete this._robots[ robot.mac ];
+        for (let oldrobot of Object.keys(this._robots)) {
+            let robotFound = false;
+            for (let robot of robots)
+            {
+                if (robot.mac === oldrobot)
+                {
+                    robotFound = true;
+                }
+            };
+            if (!robotFound) {
+                let deletedRobot = this._robots[ oldrobot];
+                delete this._robots[ oldrobot ];
                 this._events.remove.emit( deletedRobot );
             };
         };
     }
 
-    get robotNames () {
+    get robotsMacAddresses () {
         return Object.keys(this._robots);
     }
 
@@ -39,7 +47,7 @@ export class RobotsList {
             lastRobot.last_connection = last_connection;
             this._events.update.emit(lastRobot);
         } else {
-            let newRobot = new Robot(mac, type, name, last_connection);
+            let newRobot = new Robot(mac, name, type, last_connection);
             this._robots[ mac ] = newRobot;
             this._events.add.emit(newRobot);
         }

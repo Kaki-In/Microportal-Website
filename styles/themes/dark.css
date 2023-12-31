@@ -36,6 +36,11 @@
 
         --colorUserThumbnailBackground: var(--colorSecondary);
         --colorUserThumbnailHoverBackground: var(--colorSecondaryDark);
+
+        --colorTableRowHover: var(--colorSecondaryDark);
+        --colorTableTitle: var(--colorMainBackground);
+        --colorTableTitleBackground: var(--colorSecondary);
+        --colorTableLines: var(--colorSecondaryDark);
     }
 
 }

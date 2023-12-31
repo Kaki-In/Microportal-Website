@@ -71,6 +71,11 @@
         --dimenUserThumbnailSpace: 60px;
         --dimenUserThumbnailMargin: 50px;
 
+        --dimenRobotThumbnailHeight: 40px;
+        --dimenTableRowRadius: 12px;
+        --dimenTablePadding: 14px;
+        --dimenTableSpacing: 9px;
+        --dimenTableLines: 6px;
     }
 
 }

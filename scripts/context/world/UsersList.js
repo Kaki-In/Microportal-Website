@@ -18,13 +18,21 @@ export class UsersList {
             this.updateUser(user.name, user.icon, user.last_connection);
         }
 
-        for (let user of Object.keys(this._users)) {
-            if (!users[ user.name ]) {
-                let deletedUser = this._users[ user.name ]
-                delete this._users[ user.name ];
+        for (let oldusername of Object.keys(this._users)) {
+            let userFound = false;
+            for (let user of users)
+            {
+                if (user.name === oldusername)
+                {
+                    userFound = true;
+                }
+            };
+            if (!userFound) {
+                let deletedUser = this._users[ oldusername];
+                delete this._users[ oldusername ];
                 this._events.remove.emit( deletedUser );
-            }
-        }
+            };
+        };
     }
 
     get userNames () {
