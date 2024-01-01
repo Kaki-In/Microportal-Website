@@ -3,11 +3,11 @@ export class ConnectedDistantActionsList {
     constructor() {
         this._actions = {
             "updateUserInformations": (platform, args) => {
-                platform.context.world.users.updateUser(args.name, args.icon, args.last_connection);
+                platform.context.world.users.updateUser(args.name, args.icon, args.last_connection, args.connected);
                 platform.localActions.resolveUserFetch("success", args);
             },
             "updateRobotInformations": (platform, args) => {
-                platform.context.world.robots.updateRobot(args.mac, args.name, args.type, args.last_connection);
+                platform.context.world.robots.updateRobot(args.mac, args.name, args.type, args.last_connection, args.connected);
                 platform.localActions.resolveRobotFetch("success", args);
             },
             "robotActionSent": (platform, args) => {

@@ -70,12 +70,14 @@
         --dimenUserThumbnailImageRadius: 40px;
         --dimenUserThumbnailSpace: 60px;
         --dimenUserThumbnailMargin: 50px;
+        --dimenConnectedUserRoundSize: 38px;
+        --dimenConnectedRobotRoundSize: 12px;
 
         --dimenRobotThumbnailHeight: 40px;
         --dimenTableRowRadius: 12px;
         --dimenTablePadding: 14px;
         --dimenTableSpacing: 9px;
-        --dimenTableLines: 6px;
+        --dimenTableLines: 3px;
     }
 
 }

@@ -44,12 +44,14 @@
 
     --colorUserThumbnailBackground: var(--colorSecondary);
     --colorUserThumbnailHoverBackground: var(--colorSecondaryLight);
+    --colorConnectedUserRound: #12b723;
+    --colorConnectedRobotRound: #12b723;
 
     --colorTableRowHover: var(--colorSecondaryLight);
     --colorTableTitle: var(--colorMainBackground);
     --colorTableTitleBackground: var(--colorSecondary);
     --colorTableLines: var(--colorSecondaryLight);
-
+    
     --stringFontName: 'Ubuntu';
 
     --directionHeaderContent: row;
@@ -61,6 +63,7 @@
     --zIndexNotificationsDiv: 15;
 
     --zIndexThumbnailContent: 1;
+    --zIndexConnectedUserRound: 2;
 
     --displayHeaderOpenMenuText: none;
 
@@ -78,5 +81,7 @@
     --timingFunctionHeaderOpen: ease-in;
 
     --percentageUserIcon: 33%;
+
+    --percentageDisconnectedRobtOpacity: 40%;
 }
 

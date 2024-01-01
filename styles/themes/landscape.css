@@ -63,8 +63,10 @@
         --dimenUserThumbnailPadding: 20px;
         --dimenUserThumbnailRadius: 15px;
         --dimenUserThumbnailImageRadius: 20px;
-        --dimenUserThumbnailSpace: 30px;
+        --dimenUserThumbnailSpace: 10px;
         --dimenUserThumbnailMargin: 20px;
+        --dimenConnectedUserRoundSize: 20px;
+        --dimenConnectedRobotRoundSize: 5px;
 
         --dimenRobotThumbnailHeight: 30px;
         --dimenTableRowRadius: 5px;

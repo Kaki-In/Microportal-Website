@@ -36,6 +36,7 @@
 
         --colorUserThumbnailBackground: var(--colorSecondary);
         --colorUserThumbnailHoverBackground: var(--colorSecondaryDark);
+        --colorConnectedUserRound: #12b723;
 
         --colorTableRowHover: var(--colorSecondaryDark);
         --colorTableTitle: var(--colorMainBackground);

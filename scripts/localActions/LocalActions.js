@@ -44,26 +44,24 @@ export class LocalActions {
     }
 
     resolveConnection(state, result) {
-        this._connectResolve.pop()({
+        this._connectResolve.pop()?.({
             state: state,
             result: result
         });
     } 
 
     resolveCreation(state, result) {
-        this._createResolve.pop()({
+        this._createResolve.pop()?.({
             state: state,
             result: result
         });
-        this._createResolve = null;
     } 
 
     resolveVerification(state, result) {
-        this._verifyResolve.pop()({
+        this._verifyResolve.pop()?.({
             state: state,
             result: result
         });
-        this._verifyResolve = null;
     } 
 
     startVerifyMailAddress(name, password) {

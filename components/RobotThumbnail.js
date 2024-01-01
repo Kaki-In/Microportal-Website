@@ -28,6 +28,11 @@ function createThumbnail(robot) {
     let tr = document.createElement("tr");
     tr.classList.add("robot-thumbnail");
 
+    if (robot.connected)
+    {
+        tr.classList.add("connected");
+    };
+
     appendChild(tr.appendChild(document.createElement("td")), new Image("./static/images/robotTypes/" + robot.type + ".png"));
  
     tr.appendChild(document.createElement("td")).textContent = robot.name;

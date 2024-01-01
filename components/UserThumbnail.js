@@ -5,7 +5,7 @@ import { Image } from "./Image.js";
 export class UserThumbnail extends Component {
 
     constructor(user) {
-        let thumbnail = createThumbnail(user.name, user.icon.data);
+        let thumbnail = createThumbnail(user);
 
         super(thumbnail);
 
@@ -24,9 +24,18 @@ export class UserThumbnail extends Component {
 
 }
 
-function createThumbnail(name, icon) {
+function createThumbnail(user) {
+    let name = user.name;
+    let icon = user.icon.data;
+    let connected = user.connected;
+
     let div = document.createElement("div");
     div.classList.add("user-thumbnail");
+
+    if (user.connected)
+    {
+        div.classList.add("connected");
+    };
 
     let flexdiv = document.createElement("div");
  

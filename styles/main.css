@@ -245,6 +245,18 @@ div.user-thumbnail {
     overflow: hidden;
 }
 
+div.user-thumbnail.connected:before {
+    content: "";
+    position: absolute;
+    width: var(--dimenConnectedUserRoundSize);
+    height: var(--dimenConnectedUserRoundSize);
+    background: var(--colorConnectedUserRound);
+    border-radius: 100%;
+    right: var(--dimenTableSpacing);
+    top: var(--dimenTableSpacing);
+    z-index: var(--zIndexConnectedUserRound);
+}
+
 div.list-users div.user-thumbnail {
     width: var(--dimenUserThumbnailWidth);
     margin: var(--dimenUserThumbnailMargin);
@@ -284,7 +296,7 @@ div.user-thumbnail img {
 }
 
 div.user-thumbnail p {
-    margin-top: var(--dimenThumbnailSpace);
+    margin-top: var(--dimenUserThumbnailSpace);
     margin-bottom: 0px;
     width: 100%;
     text-align: center;
@@ -298,6 +310,11 @@ tr.robot-thumbnail img {
     width: auto;
 }
 
+tr.robot-thumbnail:not(.connected) {
+    opacity: var(--percentageDisconnectedRobtOpacity);
+    filter : grayscale(1);
+}
+
 div.list-robots {
     display: block;
     padding: var(--dimenTablePadding);
@@ -305,8 +322,23 @@ div.list-robots {
     border-radius: var(--dimenMainRadius);
 }
 
-div.list-robots tr:not(thead tr) {
+div.list-robots tr.robot-thumbnail {
     cursor: pointer;
+}
+
+div.list-robots tr.connected td {
+    position: relative;
+}
+
+div.list-robots tr.connected td:nth-child(1):before {
+    content: "";
+    position: absolute;
+    width: var(--dimenConnectedRobotRoundSize);
+    height: var(--dimenConnectedRobotRoundSize);
+    background: var(--colorConnectedRobotRound);
+    border-radius: 100%;
+    right: 0px;
+    top:0px;
 }
 
 table {

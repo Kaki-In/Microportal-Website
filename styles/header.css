@@ -17,6 +17,8 @@ header {
 
 header.open {
     max-height: 1000px;
+    bottom: 0px;
+    background: var(--colorPrimary);
     transition: var(--timeHeaderOpenTransition) all var(--timingFunctionHeaderOpen);
 }
 

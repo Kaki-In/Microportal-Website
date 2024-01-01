@@ -80,7 +80,7 @@ export class ConnectedLocalActions {
 
     resolveUserFetch(state, result) {
         let name = result.name;
-        this._userFetch[ name ].pop() ({
+        this._userFetch[ name ]?.pop()?.({
             state: state,
             result: result
         });
@@ -88,18 +88,18 @@ export class ConnectedLocalActions {
 
     resolveRobotFetch(state, result) {
         let mac = result.mac;
-        this._robotFetch[ mac ].pop() ({
+        this._robotFetch[ mac ]?.pop()?.({
             state: state,
             result: result
         });
     } 
 
     resolveUsersList(ulist) {
-        this._usersListResolve.pop()(ulist);
+        this._usersListResolve?.pop()?.(ulist);
     }
 
     resolveRobotsList(rlist) {
-        this._robotsListResolve.pop()(rlist);
+        this._robotsListResolve?.pop()?.(rlist);
     }
 
 }

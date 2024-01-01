@@ -15,7 +15,7 @@ export class RobotsList {
 
     updateRobots(robots) {
         for (let robot of robots) {
-            this.updateRobot(robot.mac, robot.name, robot.type, robot.last_connection);
+            this.updateRobot(robot.mac, robot.name, robot.type, robot.last_connection, robot.connected);
         };
 
         for (let oldrobot of Object.keys(this._robots)) {
@@ -39,15 +39,16 @@ export class RobotsList {
         return Object.keys(this._robots);
     }
 
-    updateRobot(mac, name, type, last_connection) {
+    updateRobot(mac, name, type, last_connection, connected) {
         let lastRobot = this._robots[ mac ];
         if (lastRobot) {
             lastRobot.type = type;
             lastRobot.name = name;
             lastRobot.last_connection = last_connection;
+            lastRobot.connected = connected;
             this._events.update.emit(lastRobot);
         } else {
-            let newRobot = new Robot(mac, name, type, last_connection);
+            let newRobot = new Robot(mac, name, type, last_connection, connected);
             this._robots[ mac ] = newRobot;
             this._events.add.emit(newRobot);
         }

@@ -15,7 +15,7 @@ export class UsersList {
 
     updateUsers(users) {
         for (let user of users) {
-            this.updateUser(user.name, user.icon, user.last_connection);
+            this.updateUser(user.name, user.icon, user.last_connection, user.connected);
         }
 
         for (let oldusername of Object.keys(this._users)) {
@@ -39,13 +39,14 @@ export class UsersList {
         return Object.keys(this._users);
     }
 
-    updateUser(name, usericon, last_connection) {
+    updateUser(name, usericon, last_connection, connected) {
         let lastUser = this._users[ name ];
         if (lastUser) {
             lastUser.icon = usericon;
+            lastUser.connected = connected;
             this._events.update.emit(lastUser);
         } else {
-            let newUser = new User(name, usericon);
+            let newUser = new User(name, usericon, connected);
             this._users[ name ] = newUser;
             this._events.add.emit(newUser);
         }
